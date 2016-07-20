@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/proceed.js"></script>
+    <script type="text/javascript" src="../javascripts/experiment.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <title>Experiment on stress and strain</title>
+</head>
+
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">Experiment on stress and strain</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+
+
+    <h3>
+        <a class="anchor" name="welcome" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to structural experiment pages.
+    </h3>
+    <p style="padding-left: 60px;">This page is for structural experiment on stress and strain of member forces, i.e., axial force, shear force, and bending moment.
+    When you enter the measured values of the experiment below, you can get the computed corresponding stree, strain, and elastic modulus, and so on.
+    <br />
+    (Unit : force = \(N\), length = \(mm\), stress = \(MPa\))</p>
+    <!--<math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mi>x</mi>
+        <mo>=</mo>
+        <mfrac>
+            <mrow>
+                <mrow>
+                    <mo>-</mo>
+                    <mi>b</mi>
+                </mrow>
+                <mo>&PlusMinus;</mo>
+                <msqrt>
+                    <msup>
+                        <mi>b</mi>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>-</mo>
+                    <mrow>
+                        <mn>4</mn>
+                        <mo>&InvisibleTimes;</mo>
+                        <mi>a</mi>
+                        <mo>&InvisibleTimes;</mo>
+                        <mi>c</mi>
+                    </mrow>
+                </msqrt>
+            </mrow>
+            <mrow>
+                <mn>2</mn>
+                <mo>&InvisibleTimes;</mo>
+                <mi>a</mi>
+            </mrow>
+        </mfrac>
+    </math>
+    When $a \ne 0$, there are two solutions to \(\sigma ax^2 + bx + c = 0\) and they are $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$ -->
+
+    <h3><a class="anchor" name="axial" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Axial force and stress</h3>
+    <div style="padding-left: 60px;">
+        <table>
+            <tr>
+                <td>try<br>1st<br>2nd<br>3rd<br>4th<br>5th<br>6th</td>
+                <td>
+                    force of 5 pendulums \(P\)<br>
+                    <input type="text" readonly value="4.90"><br>
+                    <input type="text" readonly value="4.90"><br>
+                    <input type="text" readonly value="4.90"><br>
+                    <input type="text" readonly value="4.90"><br>
+                    <input type="text" readonly value="4.90"><br>
+                    <input type="text" readonly value="4.90">
+                </td>
+                <td>
+                    enlongation \(\Delta L\)<br>
+                    <input type="text" id="axial_1st" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="axial_2nd" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="axial_3rd" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="axial_4th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="axial_5th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="axial_6th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;">
+                </td>
+            </tr>
+            <tr>
+                <td><input id="axial_submit" type="submit" value="Submit"></td>
+            </tr>
+            <tr>
+                <td>average</td>
+                <td><input id="axial_average_force" type="text" readonly value="4.90"></td>
+                <td><input id="axial_average_length" type="text" readonly></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>normal stress \(\sigma_x\)<br>normal strain \(\epsilon_x\)<br>elastic modulus E</td>
+                <td><input id="axial_sigma" type="text" readonly><br><input id="axial_epsilon" type="text" readonly><br><input id="axial_modulus" type="text" readonly></td>
+            </tr>
+        </table>
+    </div>
+
+    <h3><a class="anchor" name="shear" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shear force and sress</h3>
+    <div style="padding-left: 60px;">
+        <table>
+            <tr>
+                <td>try<br>1st<br>2nd<br>3rd<br>4th<br>5th<br>6th</td>
+                <td>
+                    force of 5 pendulums \(V\)<br>
+                    <input type="text" readonly value="4.90"><br>
+                    <input type="text" readonly value="4.90"><br>
+                    <input type="text" readonly value="4.90"><br>
+                    <input type="text" readonly value="4.90"><br>
+                    <input type="text" readonly value="4.90"><br>
+                    <input type="text" readonly value="4.90">
+                </td>
+                <td>
+                    displacement \(\lambda\)<br>
+                    <input type="text" id="shear_1st" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="shear_2nd" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="shear_3rd" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="shear_4th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="shear_5th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="shear_6th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;">
+                </td>
+            </tr>
+            <tr>
+                <td><input id="shear_submit" type="submit" value="Submit"></td>
+            </tr>
+            <tr>
+                <td>average</td>
+                <td><input id="shear_average_force" type="text" readonly value="4.90"></td>
+                <td><input id="shear_average_length" type="text" readonly></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>shear stress \(\tau_{xy}\)<br>shear strain \(\gamma_{xy}\)<br>shear modulus G</td>
+                <td><input id="shear_tau" type="text" readonly><br><input id="shear_gamma" type="text" readonly><br><input id="shear_modulus" type="text" readonly></td>
+            </tr>
+        </table>
+    </div>
+
+    <h3><a class="anchor" name="bending" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bending moment and stress</h3>
+    <div style="padding-left: 60px;">
+        <table>
+            <tr>
+                <td>try<br>1st<br>2nd<br>3rd<br>4th<br>5th<br>6th</td>
+                <td>
+                    length at center \(L\)<br>
+                    <input type="text" id="moment_cnt_1st" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="moment_cnt_2nd" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="moment_cnt_3rd" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="moment_cnt_4th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="moment_cnt_5th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="moment_cnt_6th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;">
+                </td>
+                <td>
+                    length at top fiber \(L'\)<br>
+                    <input type="text" id="moment_top_1st" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="moment_top_2nd" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="moment_top_3rd" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="moment_top_4th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="moment_top_5th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"><br>
+                    <input type="text" id="moment_top_6th" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;">
+                </td>
+            </tr>
+            <tr>
+                <td><input id="moment_submit" type="submit" value="Submit"></td>
+            </tr>
+            <tr>
+                <td>average</td>
+                <td><input id="moment_cnt_average_length" type="text" readonly></td>
+                <td><input id="moment_top_average_length" type="text" readonly></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>normal strain \(\epsilon_x\)<br>radius of curvature \(\rho\)<br>curvature \(\kappa\)<br>moment \(M_x\)<br>bending stress \(\sigma_x\)</td>
+                <td>
+                    <input id="moment_epsilop" type="text" readonly><br>
+                    <input id="radius_curvature" type="text" readonly><br>
+                    <input id="curvature" type="text" readonly><br>
+                    <input id="moment" type="text" readonly><br>
+                    <input id="bending_sigma" type="text" readonly>
+                </td>
+            </tr>
+        </table>
+    </div>
+        
+    </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <!--<p><a onclick="history.go(-1);">Go back</a></p>-->
+            <!--<p><a href="" onclick="history.back();">Go back</a></p>-->
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../javascripts/proceed.js"></script>
+    <script type="text/javascript" src="../javascripts/quiz.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <title>Joint and joint reaction</title>
+</head>
+
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">절점(joint)과 절점반력(joint reaction)</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+
+            <!--########## PRE VIEW ##########-->
+            <div id="pre_view">
+                <h3><a class="anchor" name="pre_veiw" aria-hidden="true"></a>예습과제</h3>
+                <ul>
+                    <li>없음.</li>
+                </ul>
+            </div>
+
+            <!--########## MAIN VIEW ##########-->
+            <div id="main_view" hidden>
+                <h3><a class="anchor" name="joint" aria-hidden="true"></a>절점(joint)</h3>
+                <ul>
+                    <li>
+                        <a href="02.01.support.html#quiz">지점에 대해서 먼저 복습한다.</a>
+                    </li>
+                    <li>
+                        구조물 <font color="MediumVioletRed">내부</font>에서 <font color="MediumVioletRed">부재와 부재가 만나는 점</font>을 <font color="MediumVioletRed">절점(joint)</font>이라 한다.
+                    </li>
+                    <li>
+                        아래 그림에서 구조물은 부재 AB와 부재 BC의 집합체이며, 2개의 부재가 점 B에서 만나기 때문에 점 B는 절점이다. 오른쪽 그림에서 <font color="MediumVioletRed">점 B는 이동단으로 지지되어 있으므로, 지점이면서 동시에 절점</font>이다.
+                        <p><img src="images\03.01.01.png" width="599" height="145"></p>
+                    </li>
+                    <li>
+                        절점에는 회전절점(hinge)과 고정절점(rigid joint)이 있다.
+                    </li>
+                    <li>
+                        힌지절점은 <font color="MediumVioletRed">회전단과 같이 연결된 부재의 상대적인 이동은 허용하지 않지만 회전은 허용</font>하며, 위 그림 왼쪽과 같이 속이 빈 혹은 흰색 동그라미로 표시한다.
+                    </li>
+                    <li>
+                        고정절점은 <font color="MediumVioletRed">고정단과 같이 연결된 부재의 상대적인 이동과 회전까지 허용하지 않</font>으며, 위 그림 중간 및 오른쪽과 같이 속이 채워진 혹은 검은 동그라미로 표시하거나 아무런 표시가 없다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_1" hidden>다음에서 절점의 수를 계산하시오.<br/>
+                        <img src="images\test.03.01.01.png" width="225" height="166">
+                        <table><tr>
+                            <td><input type="text" id="inp_test_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_test_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_1" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="rigi_joint_reaction" aria-hidden="true"></a>고정절점의 절점반력(joint reaction)</h3>
+                <ul>
+                    <li>
+                        아래 그림에서 점 A는 구조물의 외부와 연결되는 지점(support)으로서 고정단이고 점 B는 구조물의 내부에서 부재 AB와 부재 BC가 만나는 절점으로서 상대적인 이동과 회전을 허용하지 않는 고정절점이다.
+                        <p><img src="images\03.01.02.png" width="279" height="152"></p>
+                    </li>
+                    <li>
+                        만약 부재 BC만 분리하여 대상 구조물로 설정하면, 부재 AB는 위의 오른쪽 그림 위와 같이 고정절점 B에서 구조물(부재 BC)의 외부가 되어 구조물(부재 BC)의 부재 AB에 대한 상대적인 이동과 회전을 허용하지 않는 고정단과 같은 역할을 한다.
+                    </li>
+                    <li>
+                        이렇게 되면, 구조물(부재 BC)의 절점 B에는 위의 오른쪽 그림 아래와 같이 고정단과 동일한 반력이 발생한다. 이 반력은 절점에서 발생하므로, <font color="MediumVioletRed">절점반력(joint reaction)</font>이라 한다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_2" hidden>고정절점에서 발생하는 절점반력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_test_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_2" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="hinge_joint_reaction" aria-hidden="true"></a>회전절점의 절점반력(joint reaction)</h3>
+                <ul>
+                    <li>
+                        아래 그림과 같은 구조물에서 점 B는 연결되는 부재의 상대적인 이동은 허용하지 않지만 상대적인 회전은 허용하는 회전절점이다.
+                        <p><img src="images\03.01.03.png" width="279" height="155"></p>
+                    </li>
+                    <li>
+                        부재 BC만 분리하여 대상 구조물로 설정하면, 부재 AB는 위의 오른쪽 그림 위와 같이 회전절점 B에서 구조물(부재 BC)의 외부가 되어 구조물(부재 BC)의 부재 AB에 대한 상대적인 이동을 허용하지 않는 회전단과 같은 역할을 된다.
+                        그리고, 위의 오른쪽 그림 아래와 같이 회전단과 동일한 절점반력이 발생한다.
+                    </li>
+                    <li>
+                        간단히 요약하면, <font color="MediumVioletRed">고정절점에서는 고정단과 동일한 절점반력이 발생</font>하고, <font color="MediumVioletRed">회전절점에서는 회전단과 동일한 절점반력이 발생</font>한다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_3" hidden>회전절점에서 발생하는 절점반력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_test_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_3" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="joint_reaction_characteristics" aria-hidden="true"></a>절점반력의 특징</h3>
+                <ul>
+                    <li>
+                        구조물에서 절점을 가상으로 절단하여 부재별로 자유물체도를 작성할 수 있는데, 여기에는 <font color="MediumVioletRed">외력, 지점반력, 절점반력</font>이 포함된다.
+                    </li>
+                    <li>
+                        아래 구조물의 자유물체도는 아래 2번째 그림과 같으며, 지점 A에 지점반력 \(P_1, P_2, M_A\)가 작용하는 것을 알 수 있다. 그리고 절점 B를 가상으로 절단하여 부재 AB와 부재 BC를 각각 대상 구조물로 설정하여 작성한 자유물체도는 아래의 3, 4번째 그림과 같다.
+                        <p><img src="images\03.01.04.png" width="526" height="192"></p>
+                    </li>
+                    <li>
+                        여기에서 주목할 점은 부재 AB와 부재 BC의 절점 B에 작용하는 절점반력이다. 부재 AB와 부재 BC는 하나의 구조물이기 때문에 두 <font color="MediumVioletRed">부재의 자유물체도를 합하면 원래 구조물의 자유물체도와 동일</font>해야 한다. 즉, 위의 3, 4번째 그림을 합하면 2번째 그림과 동일해야 한다.
+                    </li>
+                    <li>
+                        이를 위해서는 <font color="MediumVioletRed">부재 AB의 절점 B에 작용하는 절점반력과 부재 BC의 절점 B에 작용하는 절점반력을 합성하면 원래 구조물의 절점 B에 작용하는 힘과 동일</font>해야 한다.
+                    </li>
+                    <li>
+                        위의 원래 구조물에서 절점 B에는 아무런 힘(외력이나 지점반력)도 작용하지 않기 때문에, 부재 AB의 절점 B에 작용하는 절점반력들은 부재 BC의 절점 B에 작용하는 절점반력들과 그 크기는 같고 방향은 반대가 된다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_4" hidden>다음에서 \(M\)의 크기를 계산하시오.<br/>
+                        <img src="images\test.03.01.04.png" width="361" height="95">
+                        <table><tr>
+                            <td><input type="text" id="inp_test_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_test_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_4" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!--########## RE VIEW ##########-->
+            <div id="re_view_quiz" hidden>
+                <h3><a class="anchor" name="re_view_quiz" aria-hidden="true"></a>복습 퀴즈</h3>
+                <ol id="ol_quiz">
+                    <li>다음에서 지점의 수를 계산하시오.<br><img src="images\quiz.03.01.01.png" width="360" height="128">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_1" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 절점의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_2" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 부재 AB의 절점반력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_3" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 부재 BC의 절점변력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_4" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 지점으로서의 점 A의 종류를 쓰시오.<br><img src="images\quiz.03.01.05.png" width="131" height="78">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_5" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_5" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_5" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 지점 A의 지점반력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_6" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_6" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_6" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 절점으로서의 점 A의 종류를 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_7" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_7" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_7" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 절점 A의 절점반력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_8" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_8" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_8" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 절점반력 \(V\)를 계산하시오.<br><img src="images\quiz.03.01.09.png" width="468" height="92">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_9" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_9" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_9" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 9에서 절점반력 \(M\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_10" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_10" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_10" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                </ol>
+            </div>
+
+            <form id="form_proceed">
+                <h3 id="to_next"><a class="anchor" name="proceed" aria-hidden="true"></a>다음 단계로</h3>
+                <div style="padding-left: 60px;">
+                    <input type="submit" id="submit_keyword" value="내용 보여주기" /><span id="span_keyword"></span>
+                </div>
+            </form>
+
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <!--<p><a onclick="history.go(-1);">Go back</a></p>-->
+            <!--<p><a href="" onclick="history.back();">Go back</a></p>-->
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

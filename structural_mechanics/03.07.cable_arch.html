@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../javascripts/proceed.js"></script>
+    <script type="text/javascript" src="../javascripts/quiz.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <title>Member forces of a cabel and arch</title>
+</head>
+
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">케이블(cable)과 아치(arch)</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+
+            <!--########## PRE VIEW ##########-->
+            <div id="pre_view">
+                <h3><a class="anchor" name="pre_veiw" aria-hidden="true"></a>예습과제</h3>
+                <ul>
+                    <li>교재 253쪽~257쪽의 "6.1.1 케이블의 구조적 개념"과 "6.1.2 집중하중을 받는 케이블"을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                    <li>교재 264쪽~265쪽의 "6.2.1 아치의 구조적 개념과 적용 사례"에서 그림 6-6까지 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                    <li>교재 267쪽~268쪽의 "6.2.2 켄틸레버형 아치"를 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                </ul>
+            </div>
+
+            <!--########## MAIN VIEW ##########-->
+            <div id="main_view" hidden>
+                <h3><a class="anchor" name="joint" aria-hidden="true"></a>케이블</h3>
+                <ul>
+                    <li>유연성이 있으면서 집중하중이 작용하는 두 지점 사이에서 축방향 <font color="MediumVioletRed">인장력</font>을 지지한다.</li>
+                    <li>케이블에는 인장력만 작용하고, 이 <font color="MediumVioletRed">인장력의 수평방향 성분은 그 크기가 항상 지점반력의 수평방향 성분의 크기와 같다.</font></li>
+                    <li>집중하중이 작용할 경우, <font color="MediumVioletRed">집중하중이 작용하는 점을 내부 회전절점</font>으로, 각 <font color="MediumVioletRed">회전절점들 사이의 케이블 부분을 인장력만 작용하는 트러스 부재</font>로 취급한다.</li>
+                    <li>집중하중을 받는 케이블의 부재력 계산은 다음의 절차에 따른다.
+                        <ol>
+                            <li>케이블 전체를 대상으로 FBD를 작성하고 평형조건식을 적용하여 지점반력의 일부를 계산한다.</li>
+                            <li>집중하중이 작용하고 높이가 주어진 점을 <font color="MediumVioletRed">구조물 내부의 회전절점</font>으로 설정하여 가상으로 절단한다.</li>
+                            <li>절단된 한 부분을 대상으로 FBD를 작성하고 평형조건식을 적용하여 나머지 지점반력을 계산한다.</li>
+                            <li>집중하중이 작용하는 점 사이의 케이블 부분을 <font color="MediumVioletRed">인장력만 작용하는 트러스 부재로 취급하고 그 사이를 가상으로 절단</font>한다.</li>
+                            <li>절단된 한 부분을 대상으로 FBD를 작성하고 평형조건식을 적용하여 부재력(인장력)을 계산한다.</li>
+                        </ol>
+                    </li>
+                    <li>예제 (집중하중을 받는 케이블) : 다음에서 케이블에 작용하는 인장력을 계산하시오.
+                        <p><img src="images\03.07.01.png" width="514" height="116"></p>
+                        <ol>
+                            <li>
+                                케이블 전체를 대상으로 FBD를 작성하고 평형조건식을 적용하여 \(V_A, \ V_D\)를 계산한다.
+                                <p>
+                                    <img src="images\03.07.02.png" width="562" height="80"><br />
+                                    \(\sum M_A=-6 \times 3 - 3 \times 6 + V_D \times 9 = 0 \quad \therefore V_D=4 kN \\
+                                    \sum F_y = V_A - 6 - 3 + V_D = 0 \quad \therefore V_A=5 kN \\
+                                    \sum F_x = H_A + H_D = 0 \quad \therefore H_D = - H_A\)
+                                </p>
+                            </li>
+                            <li>
+                                집중하중이 작용하고 높이가 주어진 점 B를 <font color="MediumVioletRed">구조물 내부의 회전절점</font>으로 설정하여 가상으로 절단한 후, 여기에 FBD를 작성하고 평형조건식을 적용하여 \(H_A, \, H_D\)를 계산한다.
+                                <p>
+                                    <img src="images\03.07.03.png" width="290" height="111"><br />
+                                    \(\sum M_B=-5 \times 3 - H_A \times 1 = 0 \quad \therefore H_A=-15 kN \\
+                                    H_D = - H_A \quad \therefore H_D = 15 kN\)
+                                </p>
+                            </li>
+                            <li>
+                                케이블 AB 부분을 가상으로 절단하고, <font color="MediumVioletRed">인장력만 작용하는 트러스 부재로 설정하여, FBD를 작성하고 평형조건식을 적용</font>한다. 단, 케이블 인장력의 수평방향 성분 \(AB_H\)는 지점반력의 수평방향 성분 \(H_A\)와 같으므로 그 크기는 \(15kN\)이다.
+                                <p>
+                                    <img src="images\03.07.04.png" width="227" height="90"><br />
+                                    \(AB_H=H_A \quad \therefore AB_H=15 kN \\
+                                    \sum F_y = 5 - AB_V = 0 \quad \therefore AB_V=5 kN \)<br />
+                                    케이블 AB의 인장력은 수평방향 성분 \(AB_H\)와 수직방향 성분 \(AB_V\)를 합성한 \(AB\)이므로
+                                    \(AB = \sqrt{AB_H^2 + AB_V^2} = 5\sqrt{10} kN\)
+                                </p>
+                            </li>
+                            <li>
+                                케이블 BC 부분을 가상으로 절단하고, 인장력만 작용하는 트러스 부재로 설정하여, FBD를 작성하고 평형조건식을 적용한다. 케이블 인장력의 수평방향 성분 \(BC_H\)는 지점반력의 수평방향 성분 \(H_A\)와 같으므로 그 크기는 \(15kN\)이다.
+                                <p>
+                                    <img src="images\03.07.05.png" width="381" height="93"><br />
+                                    \(BC_H=H_A \quad \therefore BC_H=15 kN \\
+                                    \sum F_y = 5 - 6 + BC_V = 0 \quad \therefore BC_V=1 kN \)<br />
+                                    케이블 BC의 인장력은 수평방향 성분 \(BC_H\)와 수직방향 성분 \(BC_V\)를 합성한 \(BC\)이므로
+                                    \(BC = \sqrt{BC_H^2 + BC_V^2} = \sqrt{226} kN\)
+                                </p>
+                            </li>
+                            <li>
+                                케이블 CD 부분을 가상으로 절단하고, 인장력만 작용하는 트러스 부재로 설정하여, FBD를 작성하고 평형조건식을 적용한다. 케이블 인장력의 수평방향 성분 \(CD_H\)는 지점반력의 수평방향 성분 \(H_D\)와 같으므로 그 크기는 \(15kN\)이다.
+                                <p>
+                                    <img src="images\03.07.06.png" width="249" height="89"><br />
+                                    \(CD_H=H_D \quad \therefore CD_H=15 kN \\
+                                    \sum F_y = 4 - CD_V = 0 \quad \therefore CD_V=4 kN \)<br />
+                                    케이블 CD의 인장력은 수평방향 성분 \(CD_H\)와 수직방향 성분 \(CD_V\)를 합성한 \(CD\)이므로
+                                    \(CD = \sqrt{CD_H^2 + CD_V^2} = \sqrt{241} kN\)
+                                </p>
+                            </li>
+                        </ol>
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_1" hidden>케이블에 항상 작용하는 부재력을 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_1" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_test_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_1" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="rigi_joint_reaction" aria-hidden="true"></a>아치</h3>
+                <ul>
+                    <li>아치는 부재축이 곡선으로 이루어진 <font color="MediumVioletRed">보</font>로서, 형태에 따라 반원아치, 포물선아치로 구분한다.</li>
+                    <li>또한 지지조건에 따라 켄틸레버형 아치(cantilever arch), 고정단 아치(fixed arch), 단순보형 아치(two-hinged arch), 3회전단 아치(three-hinged arch), 타이드 아치(tied arch)로 구분한다.</li>
+                    <li>아치에는 축력, 전단력, 휨모멘트가 작용하지만, 전단력과 휨모멘트는 매우 작아, <font color="MediumVioletRed">압축력</font>을 주로 받는다.</li>
+                    <li>부재력 계산에서, 반원형 아치 내부의 임의의 위치는 직교좌표계의 \(x\)가 아니라 <font color="MediumVioletRed">극좌표계(polar coordinates)의 회전각 \(\theta\)</font>로 표현한다.</li>
+                    <li>반원아치의 부재력 계산 및 부재력도 작성은 다음의 절차에 따른다.
+                        <ol>
+                            <li>아치 전체를 대상으로 FBD를 작성하고 평형조건식을 적용하여 지점반력을 계산한다.</li>
+                            <li>3회전단 아치는, 게르버보처럼, 내부의 회전절점을 가상으로 절단하고, 절단된 일부분을 대상으로 FBD 작성 및 평형조건식 적용을 추가로 수행한다.</li>
+                            <li>아치 내의 임의의 위치를 회전각 \(\theta\)로 설정한 후, 그 위치를 가상으로 절단하여 FBD를 작성하고 평형조건식을 적용하여 절점반력을 계산한다.</li>
+                            <li><font color="MediumVioletRed">아치는 각 위치마다 축방향이 변화</font>하므로, 임의의 위치 \(\theta\)에서 계산한 수평방향과 수직방향의 절점반력을 \(\theta\)에 따라 분해하고 축력과 전단력으로 합성한다.</li>
+                            <li>부재력을 바탕으로 축력도, 전단력도, 휨모멘트를 작성한다.</li>
+                        </ol>
+                    </li>
+                    <li>
+                        예제 (단순보형 아치) : 다음에서 아치에 작용하는 부재력를 구하고 부재력도를 작성하시오.
+                        <p><img src="images\03.07.07.png" width="271" height="247"></p>
+                        <ol>
+                            <li>
+                                케이블 전체를 대상으로 FBD를 작성하고 평형조건식을 적용하여 \(V_A, \ V_B\)를 계산한다.
+                                <p>
+                                    <img src="images\03.07.08.png" width="283" height="210"><br />
+                                    \(\sum M=V_B \times 2r - P \times r = 0 \quad \therefore V_B=P/2 \\
+                                    \sum F_y = V_A - P + V_B = 0 \quad \therefore V_A=P/2 \)
+                                </p>
+                            </li>
+                            <li>
+                                아치 내의 임의의 위치를 회전각 \(\theta\)로 설정한 후, 그 위치를 가상으로 절단하여 FBD를 작성하고 평형조건식을 적용하여 절점반력을 계산한다.
+                                <p>
+                                    <img src="images\03.07.09.png" width="150" height="172"><br />
+                                    \(\sum F_y=P/2 + V_\theta = 0 \quad \therefore V_\theta = -P/2 \\
+                                    \sum M_A=V_\theta \times (r-r\cos\theta) + M_B = 0 \quad \therefore M_\theta=P/2 \, (r-r\cos\theta)\)
+                                </p>
+                            </li>
+                            <li>
+                                \(V_\theta = P/2\)를 \(\theta\)에 따라 축방향과 그에 직각방향으로 분해한다.
+                                <p>
+                                    <img src="images\03.07.10.png" width="223" height="184"><br />
+                                    축방향 분력의 크기 \(= P/2 \times \cos \theta = P/2 \, \cos \theta \)<br />
+                                    직각방향 분력의 크기 \(= P/2 \times \sin \theta = P/2 \, \sin \theta \)
+                                </p>
+                            </li>
+                            <li>
+                                위 분력과 모멘트 \(M_\theta\)를 <font color="MediumVioletRed">부재력으로서의 부호</font>까지 고려하여 다음과 같이 축력 \(A(\theta)\), 전단력 \(V(\theta)\), 휨모멘트 \(M(\theta)\)를 계산한다.
+                                <p>
+                                    \(A(\theta) = -P/2 \, \cos \theta \qquad V(\theta) = P/2 \, \sin \theta \qquad M(\theta) = P/2 \, (r-r\cos\theta)\)
+                                </p>
+                            </li>
+                            <li>
+                                이 부재력에 대해서 <font color="MediumVioletRed">\(\theta = 0^\circ, \, 45^\circ, \, 90^\circ\)일 때의 값을 계산</font>한다.
+                                <p>
+                                    \(A(0^\circ) = -P/2, \quad A(45^\circ) = -P/\sqrt2, \quad A(90^\circ) = 0 \\
+                                    V(0^\circ) = 0, \quad V(45^\circ) = P/\sqrt2, \quad V(90^\circ) = P/2 \\
+                                    M(0^\circ) = 0, \quad M(45^\circ) = P/2 \, (r-r/\sqrt2), \quad M(90^\circ) = Pr/2 \)
+                                </p>
+                            </li>
+                            <li>
+                                위 부재력과 구조물이 <font color="MediumVioletRed">대칭이라는 점을 고려하여 \(\theta = 135^\circ, \, 180^\circ\)일 때의 값을 결정</font>한다.
+                                <p>
+                                    \(A(135^\circ) = -P/\sqrt2, \quad A(180^\circ) = -P/2 \\
+                                    V(135^\circ) = -P/\sqrt2, \quad V(180^\circ) = 0 \\
+                                    M(135^\circ) = P/2 \, (r-r/\sqrt2), \quad M(180^\circ) = 0 \)
+                                </p>
+                            </li>
+                            <li>
+                                이상의 부재력의 식과 값을 바탕으로 다음과 같이 부재력도를 작성한다.
+                                <p><img src="images\03.07.11.png" width="714" height="163"></p>
+                            </li>
+                        </ol>
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_2" hidden>아치에 주로 작용하는 부재력을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 차</td>
+                            <td><input type="submit" id="submit_test_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_2" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!--########## RE VIEW ##########-->
+            <div id="re_view_quiz" hidden>
+                <h3><a class="anchor" name="re_view_quiz" aria-hidden="true"></a>복습 퀴즈</h3>
+                <ol id="ol_quiz">
+                    <li>다음에서 수평방향 지점반력의 크기를 계산하시오.<br><img src="images\quiz.03.07.01.png" width="425" height="127">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_1" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 부재력 AB를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_2" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 2에서 부재력 BC를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_3" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 2에서 부재력 CD를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_4" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 \(\theta=45^\circ\)일 때의 축력 \(A(45^\circ)\)를 계산하시오.<br><img src="images\quiz.03.07.05.png" width="152" height="239">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_5" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_5" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_5" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 \(\theta=45^\circ\)일 때의 전단력 \(V(45^\circ)\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_6" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_6" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_6" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 \(\theta=45^\circ\)일 때의 휨모멘트 \(M(45^\circ)\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_7" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_7" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_7" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 축력의 부호를 무시한 최대값 \(A_\max\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_8" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_8" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_8" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 전단력의 부호를 무시한 최대값 \(V_\max\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_9" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_9" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_9" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 휨모멘트의 부호를 무시한 최대값 \(M_\max\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_10" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_10" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_10" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                </ol>
+            </div>
+
+            <form id="form_proceed">
+                <h3 id="to_next"><a class="anchor" name="proceed" aria-hidden="true"></a>다음 단계로</h3>
+                <div style="padding-left: 60px;">
+                    <input type="submit" id="submit_keyword" value="내용 보여주기" /><span id="span_keyword"></span>
+                </div>
+            </form>
+
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <!--<p><a onclick="history.go(-1);">Go back</a></p>-->
+            <!--<p><a href="" onclick="history.back();">Go back</a></p>-->
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

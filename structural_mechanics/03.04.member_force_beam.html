@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../javascripts/proceed.js"></script>
+    <script type="text/javascript" src="../javascripts/quiz.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <title>Member forces of a beam</title>
+</head>
+
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">보의 부재력(member forces of a beam)</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+
+            <!--########## PRE VIEW ##########-->
+            <div id="pre_view">
+                <h3><a class="anchor" name="pre_veiw" aria-hidden="true"></a>예습과제</h3>
+                <ul>
+                    <li>교재 85쪽~89쪽의 "3.2.2 단면력의 계산"에서 "[1] 단순보 (1) 집중하중을 받는 단순보" 부분을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                    <li>교재 89쪽~92쪽의 "3.2.2 단면력의 계산"에서 "[1] 단순보 (2) 등분포하중을 받는 단순보" 부분을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                </ul>
+            </div>
+
+            <!--########## MAIN VIEW ##########-->
+            <div id="main_view" hidden>
+                <h3><a class="anchor" name="example1" aria-hidden="true"></a>보의 부재력의 계산 및 SFD, BMD 작성 및 고찰 1</h3>
+                <ul>
+                    <li>
+                        문제 : 다음에서 \(V(x), \, M(x)\)를 구하고 SFD와 BMD를 작성하시오.
+                        <p><img src="images\03.04.01.png" width="390" height="125"></p>
+                    </li>
+                    <li>
+                        풀이
+                        <ol>
+                            <li>
+                                구조물 전체에 대해서 FBD를 작성하고 평형조건식을 적용하여 지점반력을 계산한다.
+                                <p><img src="images\03.04.02.png" width="390" height="127"></p>
+                            </li>
+                            <li>
+                                부재의 모든 구간에서 하중이 연속이므로, <font color="MediumVioletRed">부재력을 계산할 구간은 1개</font>, <font color="MediumVioletRed">점 \(A\)와 오른쪽을 \(x\)의 기준점과 양의 방향</font>으로 설정한다.
+                            </li>
+                            <li>
+                                해당 구간 내에서 임의의 위치 \(x\)를 결정하고, 가상으로 절단한다. 기준점부터 \(x\)까지를 대상 구조물로 설정하여 자유물체도를 작성한다. 여기에는 외력, 지점반력, \(x\) 에서의 <font color="MediumVioletRed">부재력 \(V(x), \, M(x)\)까지 포함</font>한다. 부재력은 <font color="MediumVioletRed">부재력으로서의 양의 방향</font>으로 설정한다.
+                                <p><img src="images\03.04.03.png" width="178" height="117"></p>
+                            </li>
+                            <li>
+                                <font color="MediumVioletRed">평형조건식을 적용</font>하여 다음과 같이 \(V(x), \, M(x)\)를 구한다.
+                                <p><font color="MediumVioletRed">
+                                    \(\sum F_y=wL/2 - w \times x - V(x)=0 \quad \therefore V(x)=wL/2-wx \\
+                                    \sum M_x=-wL/2 \times x + wx \times x/2 + M(x)=0 \quad \therefore M(x)=wLx/2-wx^2/2 \)
+                                </font></p>
+                            </li>
+                            <li>
+                                해당 구간의 <font color="MediumVioletRed">하중이 등분포</font>이므로 <font color="MediumVioletRed">SFD는 1차식</font>이며, 구간의 <font color="MediumVioletRed">양 끝점의 위치 \(x=0, \, x=L\)을 식 \(V(x)=wL/2-wx\)에 대입하여 \(V(0)=wL/2, \, V(L)=-wL/2\)</font>을 얻는다. 이를 이용하여 아래와 같이 SFD를 작성한다.
+                            </li>
+                            <li>
+                                해당 구간의 <font color="MediumVioletRed">SFD가 1차식</font>이므로 <font color="MediumVioletRed">BMD는 2차식</font>이며, 구간의 <font color="MediumVioletRed">양 끝점과 중앙의 위치 \(x=0, \, x=L/2, \, x=L\)을 식 \(M(x)=wLx/2-wx^2/2\)에 대입하여 \(M(0)=0, \, M(L/2)=wL^2/8, \, M(L)=0\)</font>을 얻는다. 이를 이용하여 아래와 같이 BMD를 작성한다.
+                                <p><img src="images\03.04.04.png" width="426" height="351"></p>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        고찰
+                        <ol>
+                            <li>
+                                <font color="MediumVioletRed">구조물에서 양 끝단의 지점반력만 집중하중이므로 SFD의 양 끝점에만 수직선이 있다. 그리고 SFD의 모든 위치에서 기울기를 구하면 그 값은 하중인 \(w\)가 된다.</font>
+                            </li>
+                            <li>
+                                <font color="MediumVioletRed">구조물에서 휨모멘트 집중하중이 없으므로 BMD에는 수직선이 없다. 그리고 BMD의 모든 위치에서 기울기를 구하면 SFD의 값이 된다. 즉, BMD의 점 A, B, 중앙의 기울기는 해당 점의 SFD의 값인 \(wL/2, \, -wL/2, \, 0 \)가 된다.</font>
+                            </li>
+                            <li>
+                                <font color="MediumVioletRed">중앙에서 전단력이 \(0\)이므로 중앙에서 휨모멘트는 최대 또는 최소가 된다.</font>
+                            </li>
+                            <li>
+                                <font color="MediumVioletRed">구조물에서 점 A에 휨모멘트 집중하중이 없으므로 구간 초기값인 점 A의 휨모멘트는 \(0\)이다. 중앙에서의 휨모멘트는 구간 초기값인 점 A의 휨모멘트에 구간 시작점 A부터 중앙까지의 SFD 면적을 더한 값, 즉 \(0 + (wL/2 \times L/2 \times 1/2) = wL^2/8\)이 된다.</font>
+                            </li>
+                            <li>
+                                이상의 풀이로부터, 이 구조물에 작용하는 <font color="MediumVioletRed">최대전단력(부호를 무시한 절대값)</font>은 점 A와 B에서 \(wL/2\)이며, <font color="MediumVioletRed">최대휨모멘트(역시 부호를 무시한 절대값)</font>는 중앙에서 \(wL^2/8\)이라는 것을 알 수 있다.
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="example2" aria-hidden="true"></a>보의 부재력의 계산 및 SFD, BMD 작성 및 고찰 2</h3>
+                <ul>
+                    <li>
+                        문제 : 다음에서 \(V(x), \, M(x)\)를 구하고 SFD와 BMD를 작성하시오.
+                        <p><img src="images\03.04.05.png" width="390" height="125"></p>
+                    </li>
+                    <li>
+                        풀이
+                        <ol>
+                            <li>
+                                구조물 전체에 대해서 FBD를 작성하고 평형조건식을 적용하여 지점반력을 계산한다.
+                                <p><img src="images\03.04.06.png" width="390" height="126"></p>
+                            </li>
+                            <li>
+                                부재의 중앙에 집중하중의 외력이 작용하므로, 이 <font color="MediumVioletRed">집중하중의 왼쪽과 오른쪽을 각각의 구간으로 설정</font>한다. <font color="MediumVioletRed">왼쪽 구간은 점 \(A\)와 오른쪽을 \(x\)의 기준점과 양의 방향</font>으로, <font color="MediumVioletRed">오른쪽 구간은 \(B\)와 왼쪽을 \(x\)의 기준점과 양의 방향</font>으로 설정한다.
+                            </li>
+                            <li>
+                                왼쪽 구간 내에서 임의의 위치 \(x\)를 결정하고, 가상으로 절단한다. 기준점부터 \(x\)까지를 대상 구조물로 설정하여 자유물체도를 작성한다. 여기에는 외력, 지점반력, \(x\) 에서의 <font color="MediumVioletRed">부재력 \(V(x), \, M(x)\)까지 포함</font>한다. 부재력은 <font color="MediumVioletRed">부재력으로서의 양의 방향</font>으로 설정한다.
+                                <p><img src="images\03.04.07.png" width="169" height="100"></p>
+                            </li>
+                            <li>
+                                <font color="MediumVioletRed">평형조건식을 적용</font>하여 다음과 같이 왼쪽 구간의 \(V(x), \, M(x)\)를 구한다.
+                                <p>
+                                    <font color="MediumVioletRed">
+                                        \(\sum F_y=P/2 - V(x)=0 \quad \therefore V(x)=P/2 \\
+                                        \sum M_x=-P/2 \times x + M(x)=0 \quad \therefore M(x)=Px/2 \)
+                                    </font>
+                                </p>
+                            </li>
+                            <li>
+                                오른쪽 구간 내에서 임의의 위치 \(x\)를 결정하고, 가상으로 절단한다. 기준점부터 \(x\)까지를 대상 구조물로 설정하여 자유물체도를 작성한다. 여기에는 외력, 지점반력, \(x\) 에서의 <font color="MediumVioletRed">부재력 \(V(x), \, M(x)\)까지 포함</font>한다. 부재력은 <font color="MediumVioletRed">부재력으로서의 양의 방향</font>으로 설정한다.
+                                <p><img src="images\03.04.08.png" width="169" height="100"></p>
+                            </li>
+                            <li>
+                                <font color="MediumVioletRed">평형조건식을 적용</font>하여 다음과 같이 오른쪽 구간의 \(V(x), \, M(x)\)를 구한다.
+                                <p>
+                                    <font color="MediumVioletRed">
+                                        \(\sum F_y=V(x) + P/2=0 \quad \therefore V(x)=-P/2 \\
+                                        \sum M_x=-M(x) + P/2 \times x=0 \quad \therefore M(x)=Px/2 \)
+                                    </font>
+                                </p>
+                            </li>
+                            <li>
+                                왼쪽 구간 내에 <font color="MediumVioletRed">하중이 없으</font>므로 <font color="MediumVioletRed">SFD는 상수</font>이며, 구간의 <font color="MediumVioletRed">시작점이나 끝점의 위치 \(x=0, \, x=L/2\)을 식 \(V(x)=P/2\)에 대입하여 \(V(0)=P/2, \, V(L/2)=P/2\)</font>를 얻는다.
+                            </li>
+                            <li>
+                                오른쪽 역시 구간 내에 <font color="MediumVioletRed">하중이 없으</font>므로 <font color="MediumVioletRed">SFD는 상수</font>이며, 구간의 <font color="MediumVioletRed">시작점이나 끝점의 위치 \(x=0, \, x=L/2\)을 식 \(V(x)=-P/2\)에 대입하여 \(V(0)=-P/2, \, V(L/2)=-P/2\)</font>를 얻는다. 이를 이용하여 아래와 같이 SFD를 작성한다.
+                            </li>
+                            <li>
+                                왼족과 오른쪽 구간 모두 <font color="MediumVioletRed">SFD가 상수</font>이므로 <font color="MediumVioletRed">BMD는 1차식</font>이며, 구간의 <font color="MediumVioletRed">양 끝점의 위치 \(x=0, \, x=L/2\)을 식 \(M(x)=Px/2\)에 대입하여 \(M(0)=0, \, M(L/2)=PL/4\)</font>을 얻는다. 이를 이용하여 아래와 같이 BMD를 작성한다.
+                                <p><img src="images\03.04.09.png" width="416" height="351"></p>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        고찰
+                        <ol>
+                            <li>
+                                <font color="MediumVioletRed">구조물에서 양 끝단의 지점반력과 중앙의 외력이 집중하중이므로 SFD의 양 끝점과 중앙에 수직선이 있다. 그리고 SFD의 기울기를 구하면 모든 구간에서 그 값은 하중인 \(0\)(해당 구간 내에는 하중이 없으므로 \(0\))이 된다.</font>
+                            </li>
+                            <li>
+                                <font color="MediumVioletRed">구조물에서 휨모멘트 집중하중이 없으므로 BMD에는 수직선이 없다. 그리고 BMD의 모든 위치에서 기울기를 구하면 SFD의 값이 된다. 즉, BMD의 왼쪽 구간인 점 A와 중앙의 기울기는 모두 해당 점의 SFD의 값인 \(P/2\), 오른쪽 구간인 중앙과 점 B의 기울기는 모두 해당 점의 SFD의 값인 \(-P/2\)가 된다.</font>
+                            </li>
+                            <li>
+                                <font color="MediumVioletRed">구조물에서 점 A에 휨모멘트 집중하중이 없으므로 구간 초기값인 점 A의 휨모멘트는 \(0\)이다. 중앙에서의 휨모멘트는 구간 초기값인 점 A의 휨모멘트에 구간 시작점 A부터 중앙까지의 SFD 면적을 더한 값, 즉 \(0 + (P/2 \times L/2) = PL/4\)이 된다.</font>
+                            </li>
+                            <li>
+                                이상의 풀이로부터, 이 구조물에 작용하는 <font color="MediumVioletRed">최대전단력(부호를 무시한 절대값)</font>은 모든 위치에서 \(P/2\)이며, <font color="MediumVioletRed">최대휨모멘트(역시 부호를 무시한 절대값)</font>는 중앙에서 \(PL/4\)이라는 것을 알 수 있다.
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+
+            <!--########## RE VIEW ##########-->
+            <div id="re_view_quiz" hidden>
+                <h3><a class="anchor" name="re_view_quiz" aria-hidden="true"></a>복습 퀴즈</h3>
+                <ol id="ol_quiz">
+                    <li>다음에서 \(V(L/2)\)을 계산하시오.<br><img src="images\quiz.03.04.01.png" width="369" height="121">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_1" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 \(M(L/2)\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_2" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 \(V(L/3)\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_3" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 \(M(L/3)\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_4" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 \(V(L/2)\)을 계산하시오.<br><img src="images\quiz.03.04.05.png" width="369" height="139">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_5" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_5" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_5" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 \(M(L/2)\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_6" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_6" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_6" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 \(V(L/3)\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_7" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_7" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_7" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 \(M(L/3)\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_8" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_8" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_8" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 부호를 무시하고 절대값으로 \(V_{\max}\)를 계산하시오.<br><img src="images\quiz.03.04.09.png" width="390" height="166">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_9" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_9" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_9" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 9에서 부호를 무시하고 절대값으로 \(M_{\max}\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_10" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_10" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_10" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                </ol>
+            </div>
+
+            <form id="form_proceed">
+                <h3 id="to_next"><a class="anchor" name="proceed" aria-hidden="true"></a>다음 단계로</h3>
+                <div style="padding-left: 60px;">
+                    <input type="submit" id="submit_keyword" value="내용 보여주기" /><span id="span_keyword"></span>
+                </div>
+            </form>
+
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <!--<p><a onclick="history.go(-1);">Go back</a></p>-->
+            <!--<p><a href="" onclick="history.back();">Go back</a></p>-->
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../javascripts/proceed.js"></script>
+    <script type="text/javascript" src="../javascripts/quiz.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <title>Force, moment, and couple</title>
+</head>
+
+    <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">힘(force), 모멘트(moment), 그리고 우력모멘트(우력, 짝힘, couple)</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+
+            <!--########## PRE VIEW ##########-->
+            <div id="pre_view">
+                <h3><a class="anchor" name="pre_veiw" aria-hidden="true"></a>예습과제</h3>
+                <ul>
+                    <li>교재 17쪽~18쪽의 "2.1.1 힘의 개념"을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                    <li>교재 18쪽~20쪽의 "2.1.2 모멘트와 우력"에서 모멘트와 바리뇽의 정리 부분을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                    <li>교재 20쪽의 "2.1.2 모멘트와 우력"에서 우력 부분을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                </ul>
+            </div>
+
+            <!--########## MAIN VIEW ##########-->
+            <div id="main_view" hidden>
+                <h3><a class="anchor" name="force" aria-hidden="true"></a>힘</h3>
+                <ul>
+                    <li>
+                        힘은 질량을 갖는 물체에 가속도를 발생시키는 것으로서, 뉴턴(Newton)의 제2법칙에 의해서 <font color="MediumVioletRed">\(F = ma\)</font>로 정의된다.
+                    </li>
+                    <li>
+                        따라서 질량에 가속도를 곱한 것을 힘의 단위 Newton\((N)\)이라 한다. 즉, \(1kg\)의 질량을 갖는 물체에 \(1m/sec^2\)의 가속도를 발생시키는 힘을 \(1N \left(= 1 kg \cdot m/sec^2\right)\)이라 한다.
+                    </li>
+                    <li>
+                        중력가속도가 작용하는 일상에서 힘의 단위로 사용하는 \(kg\)을 정확하게 \(N\)으로 나타내면 아래와 같다.
+                        <p><font color="MediumVioletRed">\(1kg = 1kg \times 9.8m/sec^2 = 9.8 kg \cdot m/sec^2 = 9.8N\)</font></p>
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_1" hidden>일상생활에서 무게 \(1ton\)은 몇 \(N\)인지 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(N\)</td>
+                            <td><input type="submit" id="submit_test_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_1" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="force" aria-hidden="true"></a>힘의 표현</h3>
+                <ul>
+                    <li>
+                        힘은 벡터(vector)이기 때문에 크기뿐 아니라 방향까지 표현해야 하며, 힘의 크기(magnitude), 방향(direction), 그리고 작용점(point of action)을 힘의 3요소라 한다.
+                    </li>
+                    <li>
+                        화살표로 힘을 표현하면, 화살표의 길이는 힘의 크기, 화살표의 방향은 힘의 방향, 화살표의 시작점은 힘의 작용점이 된다. 힘의 방향은 <font color="MediumVioletRed">양의 \(x\)축으로부터 반시계방향(counterclockwise)의 각도</font>이다.
+                    </li>
+                    <li>
+                        <font color="MediumVioletRed">시작점이 원점인 위치벡터</font>를 이용하면 힘을 <font color="MediumVioletRed">\((x, y)\)좌표</font>로 표현할 수 있으며, 이로부터 힘의 크기와 방향을 계산할 수 있다.
+                    </li>
+                    <li>
+                        아래 그림에서 화살표로 표현한 힘 \(F_1\)의 경우 <font color="MediumVioletRed">힘의 크기는 \(5\), 힘의 방향은 \(36.87^\circ\)</font>, 작용점은 \((1, \, 1)\)이다.
+                        위치벡터로 표현하면 <font color="MediumVioletRed">\((4, 3) \left(=(5,4) - (1,1)\right)\)</font>이다.
+                        <!--<p><img src="images\01.01.01.png" width="219" height="177"></p>-->
+                        <p><img src="images\01.01.01.png" width="399" height="275"></p>
+                    </li>
+                    <li>
+                        같은 방식으로 나머지 힘들을 표현하면 다음과 같다.<br />
+                        \(F_2\) : 크기는 \(2\sqrt2\), 방향은 \(135^\circ\), 작용점은 \((9, \, 1)\)이고, 위치벡터로는 \((-2, \, 2)\)이다.<br />
+                        \(F_3\) : 크기는 \(2\sqrt5\), 방향은 \(-26.57^\circ\), 작용점은 \((3, \, -2)\)이고, 위체벡터로는 \((4, \, -2)\)이다.<br />
+                        \(F_4\) : 크기는 \(2\), 방향은 \(270^\circ\), 작용점은 \((-2, \, -2)\)이고, 위치벡터로는 \((0, \, -2)\)이다.<br />
+                        \(F_5\) : 크기는 \(2\sqrt2\), 방향은 \(225^\circ\), 작용점은 \((-2, \, 3)\)이고, 위치벡터로는 \((-2, \, -2)\)이다.<br />
+                        \(F_6\) : 크기는 \(2\), 방향은 \(180^\circ\), 작용점은 \((3, \, 4)\)이고, 위치벡터로는 \((-2, \, 0)\)이다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_2" hidden>위치벡터 \((-4, \, 3)\)으로 표현되는 힘의 크기를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_test_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_2" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="moment" aria-hidden="true"></a>모멘트</h3>
+                <ul>
+                    <li>
+                        모멘트는 어떤 축(axis)을 중심으로 물체를 회전시키는 경향으로서, 크기(\(M\))는 아래 그림과 같이 힘의 크기(\(P\))와 <font color="MediumVioletRed">회전의 중심축으로부터 힘까지의 수직거리(\(d\))</font>를 곱한 값, 즉 \(M=P \times d\)이다. 모멘트는 힘에 거리를 곱한 \(N\cdot mm\) 또는 \(kN\cdot m\)를 단위로 사용한다.
+                        <p><img src="images\01.01.02.png" width="197" height="127"></p>
+                    </li>
+                    <li>
+                        모멘트 역시 벡터이기 때문에, 회전하는 화살표를 이용하면 모멘트의 크기, 방향, 작용점을 표현할 수 있다. 여기에서 작용점은 회전의 중심축의 위치이다. 모멘트의 방향은 중심축 기준으로 <font color="MediumVioletRed">반시계방향</font>을 양의 방향으로 설정한다.
+                    </li>
+                    <li>
+                        모멘트는 아래 그림과 같이, 직선방향 힘에 의한 회전이 아니라, 집중하중으로 특정한 위치(작용점)에 작용할 수도 있다. 이러한 경우에는 <font color="MediumVioletRed">작용점, 즉 회전의 중심의 위치와 관계없이 그 크기와 방향은 일정</font>하다.
+                        <p><img src="images\01.01.03.png" width="114" height="91"></p>
+                    </li>
+                    <li>
+                        위 그림에서 점 \(O\)에 대한 모멘트는 크기가 \(5kN \cdot m\)이고 방향은 시계방향으로서 부호는 \(-\)이다. 따라서 보다 간편하게는 \(-5kN \cdot m\)이다. 모멘트가 집중하중으로 작용하기 때문에, 점 \(A\)에 대한 모멘트도 역시 크기는 \(5kN \cdot m\), 방향은 시계방향이며, 간단하게는 \(-5kN \cdot m\)이다.
+                    </li>
+                    <li>
+                        <a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_3" hidden>다음에서 점 \(A\)에 대한 모멘트의 크기(방향은 무시)를 계산하시오.<br>
+                            <img src="images\test.01.01.03.png" width="152" height="117">
+                            <table><tr>
+                                <td><input type="text" id="inp_test_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(N\)</td>
+                                <td><input type="submit" id="submit_test_3" class="submit_test_quiz" value="Submit"></td>
+                                <td><span id="span_test_3" class="span_test"></span></td>
+                            </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="couple" aria-hidden="true"></a>우력모멘트</h3>
+                <ul>
+                    <li>
+                        크기가 같고 방향이 반대인 2개의 힘이 일치하지 않고 평행하게 작용하는 경우에는 모멘트와 동일한 효과가 발생한다.
+                    </li>
+                    <li>
+                        우력모멘트의 크기(\(M\))는 아래와 같이 힘의 크기(\(P\))와 <font color="MediumVioletRed">2개의 힘 사이의 수직거리(\(d\))</font>를 곱한 값, 즉 \(M=P \times d\)이다. 따라서 모멘트와 동일하게 힘에 거리를 곱한 \(N\cdot mm\) 또는 \(kN\cdot m\)를 단위로 사용하며, 방향도 <font color="MediumVioletRed">반시계방향</font>을 양의 방향으로 설정한다.
+                        <p><img src="images\01.01.04.png" width="120" height="95"></p>
+                    </li>
+                    <li>
+                        <a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_4" hidden>다음에서 우력모멘트의 크기(방향은 무시)를 계산하시오.<br>
+                            <img src="images\test.01.01.04.png" width="175" height="95">
+                            <table><tr>
+                                <td><input type="text" id="inp_test_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(N\)</td>
+                                <td><input type="submit" id="submit_test_4" class="submit_test_quiz" value="Submit"></td>
+                                <td><span id="span_test_4" class="span_test"></span></td>
+                            </tr></table>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!--########## RE VIEW ##########-->
+            <div id="re_view_quiz" hidden>
+                <h3><a class="anchor" name="re_view_quiz" aria-hidden="true"></a>복습 퀴즈</h3>
+                <ol id="ol_quiz">
+                    <li>일상생활에서 무게 \(9.8kg\)은 몇 \(N\)인지 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(N\)</td>
+                            <td><input type="submit" id="submit_quiz_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_1" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>\(1kN\)은 일상생활에서 무게 몇 \(kg\)인지 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kg\)</td>
+                            <td><input type="submit" id="submit_quiz_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_2" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 2 힘의 점 \(O\)에 대한 모멘트(방향까지 고려)를 계산하시오.<br><img src="images\quiz.01.01.03.png" width="205" height="186">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_3" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 3에서 점 \(A\)에 대한 모멘트(방향까지 고려)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_4" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 3에서 점 \(B\)에 대한 모멘트(방향까지 고려)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_5" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_5" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_5" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 점 \(O\)에 대한 모멘트(방향까지 고려)를 계산하시오.<br><img src="images\quiz.01.01.06.png" width="175" height="141">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_6" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_6" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_6" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 6의 그림에서 점 \(A\)에 대한 모멘트(방향까지 고려)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_7" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_7" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_7" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 우력모멘트(방향까지 고려)를 계산하시오.<br><img src="images\quiz.01.01.08.png" width="130" height="78">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_8" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_8" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_8" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 우력모멘트(방향까지 고려)를 계산하시오.<br><img src="images\quiz.01.01.09.png" width="73" height="113">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_9" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_9" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_9" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 우력모멘트(방향까지 고려)를 계산하시오.<br><img src="images\quiz.01.01.10.png" width="169" height="95">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_10" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_10" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_10" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                </ol>
+            </div>
+
+            <form id="form_proceed">
+                <h3 id="to_next"><a class="anchor" name="proceed" aria-hidden="true"></a>다음 단계로</h3>
+                <div style="padding-left: 60px;">
+                    <input type="submit" id="submit_keyword" value="내용 보여주기" /><span id="span_keyword"></span>
+                </div>
+            </form>
+
+    </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <!--<p><a onclick="history.go(-1);">Go back</a></p>-->
+            <!--<p><a href="" onclick="history.back();">Go back</a></p>-->
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

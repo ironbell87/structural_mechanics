@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../javascripts/proceed.js"></script>
+    <script type="text/javascript" src="../javascripts/quiz.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <title>Loads</title>
+</head>
+
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">하중(loads)</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+
+            <!--########## PRE VIEW ##########-->
+            <div id="pre_view">
+                <h3><a class="anchor" name="pre_view" aria-hidden="true"></a>예습과제</h3>
+                <ul>
+                    <li>교재 36쪽~40쪽의 "2.2.2 구조물의 하중"에서 [2] 적재(활)하중까지 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                </ul>
+            </div>
+            <!--########## MAIN VIEW ##########-->
+            <div id="main_view" hidden>
+                <h3><a class="anchor" name="force_load" aria-hidden="true"></a>하중과 힘</h3>
+                <ul>
+                    <li>
+                        구조물에는 여러 원인에 의해서 외부로부터 다양한 힘이 작용한다. 이와 같이 <font color="MediumVioletRed">구조물에 작용하는 외부의 힘(external force)을 외력 또는 하중(load)</font>이라 한다.
+                    </li>
+                    <li>
+                        구조물에 작용하는 하중은 매우 다양하며 다음과 같이 여러 기준으로 구분할 수 있다.
+                    </li>
+                    <li>관성(inertia force)의 작용여부에 따라 구분하면, 아주 천천히 작용하는 정적하중(static loads)과 급격하게 작용하여 관성력을 발생시키는 동적하중(dynamic loads)이 있다.
+                    </li>
+                    <li>
+                        작용시간에 따라 구분하면, 구조물에 매우 긴 기간동안 지속적으로 작용하는 장기하중(long term loads)과 몇 초, 또는 몇 분 동안 작용하는 단기하중(short term loads)이 있다.
+                    </li>
+                    <li>
+                        작용방향에 따라 구분하면, 수직방향으로 작용하는 수직하중(vertical loads)과 수평방향으로 작용하는 수평하중 또는 횡하중(horizontal loads, lateral loads)이 있다.
+                    </li>
+                    <li>
+                        작용원인에 따라 구분하면, 고정하중, 적재하중(활하중), 적설하중, 풍하중, 지진하중이 있다.
+                    </li>
+                    <li>
+                        작용분포에 따라 구분하면, 한 점에 집중하여 작용하는 <font color="MediumVioletRed">집중하중(concentrated loads)</font>과 일정한 구간 또는 면적에 작용하는 <font color="MediumVioletRed">분포하중(distributed loads)</font>이 있다.
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="cause_category" aria-hidden="true"></a>작용원인에 따른 하중의 구분</h3>
+                <ul>
+                    <li>
+                        고정하중(dead loads)은 구조물의 존속기간 중 항상 고정되어 작용하는 하중이다. 예로는 기둥, 보, 슬래브, 지붕, 벽체, 창호, 배관 등의 중량이 있다.
+                    </li>
+                    <li>
+                        적재하중(live loads)은 건물의 용도에 따라 바닥에 적재되는 사람, 가구 및 물품 등의 중량이며, 고정하중과는 달리 시간에 따라 부분적으로 작용한다.
+                    </li>
+                    <li>
+                        적설하중(snow loads)은 건축물에 쌓이는 눈의 중량으로서, 눈이 많은 지역에서는 장기하중이고 단기간 내에 눈이 녹는 지역에서는 단기하중이다. 건축물의 규모, 지붕의 형상, 기온, 풍속, 풍향을 고려하여 그 크기를 결정한다.
+                    </li>
+                    <li>
+                        풍하중(wind loads)은 바름, 태풍 등에 의해 건축물에 작용하느느 풍합력이다. 이는 고층건물, 현수교, 송신탑과 같은 구조물의 설계에서 특히 중요하다.<br />
+                        풍하중은 지리적 위치, 기본풍속, 건물의 모양과 규모, 표면상태, 건물의 높이, 구조특성, 중요도를 고려하여 결정하며, 구조골조용 풍하중, 지붕골조용 풍하중, 외장재용 풍하중 3가지가 있다.
+                    </li>
+                    <li>
+                        지진하중(seismic loads)은 지진에 의하여 지반이 진동할 때 관성에 의해 지상의 구조물에 작용하는 하중이다. 지리적 위치, 총중량, 구조특성, 지반, 중요도를 고려하여 결정한다.
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="distributed_load" aria-hidden="true"></a>분포하중</h3>
+                <ul>
+                    <li>
+                        분포하중은 일정한 구간 또는 면적에 걸쳐 작용하는 하중으로서, 단위는 힘을 구간의 길이로 나눈 <font color="MediumVioletRed">\(N/mm, \, kN/m\)</font> 또는 면적으로 나눈 \(N/mm^2, \, kN/m^2\)이다.
+                    </li>
+                    <li>
+                        분포하중은 하나의 힘이 여러 위치에 나뉘어 작용하는 것과 유사하므로, 하나의 합력으로 합성하여 <font color="MediumVioletRed">합력의 크기, 방향, 작용점을 결정</font>할 수 있어야 한다. 분포하중의 방향은 이미 정해져 있으므로, 합력의 방향은 분포하중의 방향과 같다.
+                    </li>
+                    <li>
+                        분포하중에는 <font color="MediumVioletRed">등분포하중(uniformly distributed loads)</font>과 <font color="MediumVioletRed">등변분포하중(uniformly varying distributed loads)</font>이 있다.
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="uniformly_distributed_load" aria-hidden="true"></a>등분포하중</h3>
+                <ul>
+                    <li>
+                        등분포하중은 일정한 구간 또는 면적에 걸쳐 동일한 크기로 분포하는 하중으로서, 그 크기는 <font color="MediumVioletRed">힘을 작용하는 구간의 길이 또는 면적으로 나눈 것</font>이다.
+                    </li>
+                    <li>
+                        등분포하중의 합력의 크기는 <font color="MediumVioletRed">그 크기에 작용하는 구간의 길이 또는 면적을 곱한 값</font>이다. 합력의 작용점은 바리뇽의 정리를 적용하여 계산하면 <font color="MediumVioletRed">구간의 중간</font>이 된다.
+                    </li>
+                    <li>
+                        다음 그림의 위쪽은 구간에 작용하는 등분포하중의 한 예이다. 이 등분포하중의 크기는 단위 길이 \(1m\)당 \(2kN\), 즉 \(2kN/m\)이며 작용하는 구간은 \(3m\)이다.
+                        <p><img src="images\01.04.01.png" width="230" height="166"></p>
+                    </li>
+                    <li>
+                        위 등분포하중의 합력의 크기는 등분포하중의 크기에 작용하는 구간의 길이를 곱한 값, 즉 \(2kN/m \times 3m = (2 \times 3) \, (kN/m \times m) = 6 kN\)이다. 합력의 작용점은 구간의 중간인 \(1.5m\) 위치이다.
+                    </li>
+                    <li>
+                        만약 위의 등분포하중이 특정한 점에 작용하는 경우, 작용하는 구간이 하나의 점이 되고 이 구간의 길이는 \(0\)이므로 등분포하중의 크기에 구간의 길이 \(0\)을 곱하면 합력의 크기가 \(0\)이 된다.
+                    </li>
+                    <li>
+                        <a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_1" hidden>\(5m\) 구간에 작용하고 크기가 \(12kN/m\)인 등분포 하중의 합력의 크기를 계산하시오.
+                            <table><tr>
+                                <td><input type="text" id="inp_test_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                                <td><input type="submit" id="submit_test_1" class="submit_test_quiz" value="Submit"></td>
+                                <td><span id="span_test_1" class="span_test"></span></td>
+                            </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="uniformly_varying_distributed_load" aria-hidden="true"></a>등변분포하중</h3>
+                <ul>
+                    <li>
+                        등변분포하중은 일정한 구간 또는 면적에 그 크기가 걸쳐 일정한 비율로 변화하여 분포하는 하중이다.
+                    </li>
+                    <li>
+                        등변분포하중의 합력의 크기는 <font color="MediumVioletRed">그 크기의 평균에 작용하는 구간의 길이 또는 면적을 곱한 값</font>이다. 합력의 작용점은 바리뇽의 정리를 적용하여 계산하면 <font color="MediumVioletRed">구간의 \(1/3\) 또는 \(2/3\)</font> 위치가 된다.
+                    </li>
+                    <li>
+                        다음 그림의 위쪽은 구간에 작용하는 등변분포하중의 한 예이다. 이 등변분포하중의 크기는 \(0kN/m\)부터 \(2kN/m\)까지 일정하게 변화하며 작용하는 구간은 \(3m\)이다.
+                        <p><img src="images\01.04.02.png" width="224" height="175"></p>
+                    </li>
+                    <li>
+                        위 등변분포하중의 합력의 크기는 등변분포하중의 크기의 평균에 작용하는 구간의 길이를 곱한 값, 즉 \((2 / 2)kN/m \times 3m = (1 \times 3) \, (kN/m \times m) = 3 kN\)이다. 합력의 작용점은 구간의 \(2/3\) 지점인 \(2m\) 위치이다.
+                    </li>
+                    <li>
+                        <a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_2" hidden>\(3m\) 구간에 작용하고 크기가 \(0kN/m\)에서 \(6kN/m\)까지 일정하게 증가하는 등변분포하중의 합력의 크기를 계산하시오.
+                            <table><tr>
+                                <td><input type="text" id="inp_test_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                                <td><input type="submit" id="submit_test_2" class="submit_test_quiz" value="Submit"></td>
+                                <td><span id="span_test_2" class="span_test"></span></td>
+                            </tr></table>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!--########## RE VIEW ##########-->
+            <div id="re_view_quiz" hidden>
+                <h3><a class="anchor" name="re_view_quiz" aria-hidden="true"></a>복습 퀴즈</h3>
+                <ol id="ol_quiz">
+                    <li>점 A부터 점 B까지 \(4m\)구간에 \(3.5kN/m\)의 등분포하중이 작용할 때, 합력의 크기를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_1" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 합력의 작용점을 점 A로부터의 거리로 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(m\)</td>
+                            <td><input type="submit" id="submit_quiz_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_2" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 등분포하중(의 합력)의 점 A에 대한 모멘트 \(M_A\)의 크기를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_3" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>점 A부터 점 B까지 \(3m\)구간에 \(0kN/m\)부터 \(3kN/m\)까지 일정하게 증가하는 등변분포하중이 작용할 때, 합력의 크기를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_4" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 4에서 합력의 작용점을 점 A로부터의 거리로 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_5" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(m\)</td>
+                            <td><input type="submit" id="submit_quiz_5" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_5" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 4에서 등변분포하중(의 합력)의 점 A에 대한 모멘트 \(M_A\)의 크기를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_6" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_6" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_6" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 4에서 등변분포하중(의 합력)의 점 B에 대한 모멘트 \(M_B\)의 크기를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_7" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_7" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_7" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>점 A부터 점 B까지 \(3m\)구간에 \(w \, kN/m\)의 등분포하중이 작용하고 그 합력의 크기가 \(12kN/m\)이다. 등분포하중의 크기 \(w\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_8" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN/m\)</td>
+                            <td><input type="submit" id="submit_quiz_8" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_8" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>점 A부터 점 B까지 \(7m\)구간에 \(0kN/m\)부터 \(w \, kN/m\)까지 일정하게 증가하는 등변분포하중이 작용하고 점 B에 대한 모멘트 \(M_B=147kn \cdot m\)이다. 합력의 크기 \(w\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_9" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN/m\)</td>
+                            <td><input type="submit" id="submit_quiz_9" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_9" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 9에서 등변분포하중(의 합력)의 점 A에 대한 모멘트 \(M_A\)의 크기를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_10" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_10" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_10" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                </ol>
+            </div>
+
+            <form id="form_proceed">
+                <h3 id="to_next"><a class="anchor" name="proceed" aria-hidden="true"></a>다음 단계로</h3>
+                <div style="padding-left: 60px;">
+                    <input type="submit" id="submit_keyword" value="내용 보여주기" /><span id="span_keyword"></span>
+                </div>
+            </form>
+
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../javascripts/proceed.js"></script>
+    <script type="text/javascript" src="../javascripts/quiz.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <title>Member force diagram</title>
+</head>
+
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">부재력도(member force diagram)</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+
+            <!--########## PRE VIEW ##########-->
+            <div id="pre_view">
+                <h3><a class="anchor" name="pre_veiw" aria-hidden="true"></a>예습과제</h3>
+                <ul>
+                    <li>교재 78쪽~81쪽의 "3.1.4 하중, 전단력 및 휨모멘트의 관계" 부분을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                </ul>
+            </div>
+
+            <!--########## MAIN VIEW ##########-->
+            <div id="main_view" hidden>
+                <h3><a class="anchor" name="member_force_diagram" aria-hidden="true"></a>부재력도(member force diagram)</h3>
+                <ul>
+                    <li>
+                        부재 내의 모든 위치에서 부재력이 발생하고 각 위치마다 그 크기가 서로 다를 수 있으므로, 부재력의 <font color="MediumVioletRed">최대값과 최소값의 위치와 그 크기</font>를 파악하는 것이 중요하다.
+                    </li>
+                    <li>
+                        따라서 부재력의 최대값과 최소값을 보다 편리하게 파악할 수 있도록 <font color="MediumVioletRed">부재의 위치를 \(x\)축으로 설정하고 그래프를 작성</font>하는데, 이를 부재력도(member force diagram)라 한다.
+                    </li>
+                    <li>
+                        부재력도는 부재력의 종류에 따라 <font color="MediumVioletRed">축력도(axial force diagram, AFD), 전단력도(shear force diagram, SFD), 휨모멘트도(bending moment diagram, BMD)</font>가 있다. 아래 그림과 같이 AFD와 SFD는 위쪽이 양의 축이지만 <font color="MediumVioletRed">BMD는 반대로 아래쪽이 양의 축</font>이다.
+                        <p><img src="images\03.03.01.png" width="563" height="129"></p>
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_1" hidden>부재력도를 작성할 때 양의 축 방향이 다른 부재력을 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_1" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_test_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_1" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <!--inline script for left-align of MathJax equation-->
+                <script>
+                    if (MathJax) {
+                        MathJax.Hub.Config({ displayAlign: "left" });
+                        MathJax.Hub.Rerender();
+                    }
+                </script>
+                <!--script for left-align of MathJax equation-->
+                <h3><a class="anchor" name="relation_equation" aria-hidden="true"></a>하중 \(w(x)\), 전단력 \(V(x)\), 휨모멘트 \(M(x)\)의 관계식</h3>
+                <ul>
+                    <li>
+                        아래 그림 왼쪽과 같이 <font color="MediumVioletRed">임의의 분포하중을 받는 구조물</font>에서 <font color="MediumVioletRed">기준점으로부터 양의 방향(오른쪽 방향)으로 \(x\)만큼 떨어진 위치</font>의 <font color="MediumVioletRed">미소구간 \(dx\) 부분</font>을 가상으로 절단하여 자유물체도를 그리면 아래 그림 오른쪽과 같다.
+                        <img src="images\03.03.02.png" width="520" height="164">
+                    </li>
+                    <li>
+                        자유물체도에는 미소구간 \(dx\)의 구조물, 외력인 분포하중 \(w(x)\), 절점인 왼쪽 단면과 오른쪽 단면에는 각각 전단력 \(V(x), \, V(x)+dV(x)\)와 휨모멘트 \(M(x), \, M(x)+dM(x)\)가 표시되어 있다. 왼쪽 단면과 오른쪽 단면의 부재력의 차이는 \(dV(x), \, dM(x)\)로 표시되었으며, 방향은 부재력으로서의 양의 방향으로 표시되어 있다.
+                    </li>
+                    <li>
+                        여기에서 <font color="MediumVioletRed">\(V(x)\)와 \(M(x)\)는 구조물의 기준점으로부터 \(x\)만큼 떨어진 위치의 전단력과 휨모멘트</font>라는 것을 유의해야 한다.
+                    </li>
+                    <li>
+                        이 자유물체도에 x방향에 대한 평형조건식을 적용하면 아래와 같다.
+                        $$ \sum F_y = V(x)-w(x)dx-(V(x)+dV(x))=0 \quad -w(x)dx-dV(x)=0 \\ \therefore -w(x)= \frac{dV(x)}{dx} $$
+                    </li>
+                    <li>
+                        그리고 점 \(C\)에 대한 모멘트 평형조건식을 적용하면 아래와 같다.
+                        $$ \sum M_C = -V(x)dx-M(x)+w(x)dx\frac{1}{2}dx+(M(x)+dM(x))=0 \\
+                        -V(x)dx+\frac{1}{2}w(x)dx^2+dM(x) \cong -V(x)dx+dM(x)=0 \quad \therefore V(x)= \frac{dM(x)}{dx} $$
+                    </li>
+                    <li>
+                        이로부터 분포하중, 전단력, 휨모멘트의 관계를 나타내는 식을 정리하면 다음과 같다.
+                        <font color="MediumVioletRed">$$ -w(x)= \frac{dV(x)}{dx} = \frac{d^2M(x)}{dx^2} $$</font>
+                        <!--<font color="MediumVioletRed">$$ -w(x)= \frac{dV(x)}{dx} = \frac{d^2M(x)}{dx^2} \\ V(x)=-\int w(x)dx \quad M(x) = -\iint w(x)dx= \int V(x)dx$$</font>-->
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="relation" aria-hidden="true"></a>전단력 \(V(x)\)와 휨모멘트 \(M(x)\)의 관계</h3>
+                <ul>
+                    <li>
+                        위 관계식을 풀어서 정리하면 다음과 같다.
+                    </li>
+                    <li>
+                        휨모멘트를 부재 내에서의 위치 \(x\)에 대해 미분하면 전단력이 되고, 전단력을 또 \(x\)에 대해 미분하면, 즉 휨모멘트를 \(x\)에 대해서 두번 미분하면 하중이 된다.
+                    </li>
+                    <li>
+                        <font color="MediumVioletRed">전단력은 하중보다 차수가 1 크고, 휨모멘트는 전단력보다 차수가 1 크다.</font> 반대로, 전단력은 휨모멘트보다 차수가 1 적고, 하중은 전단력보다 차수가 1 적다.
+                    </li>
+                    <li>
+                        하중은 전단력을 미분한 값이므로, 특정 위치에서 하중의 값은 SFD의 기울기이다.
+                    </li>
+                    <li>
+                        전단력은 하중을 적분한 값이므로, 특정 위치에서 전단력은 기준점부터 특정 위치까지 하중의 면적에 초기값을 더한 것과 같다.
+                    </li>
+                    <li>
+                        전단력은 휨모멘트를 미분한 값이므로, 특정 위치에서 전단력의 값은 BMD의 기울기이다. 따라서, <font color="MediumVioletRed">전단력이 \(0\)일때 휨모멘트가 최대 또는 최소</font>이다.
+                    </li>
+                    <li>
+                        휨모멘트는 전단력을 적분한 값이므로, <font color="MediumVioletRed">특정 위치에서 휨모멘트는 기준점부터 특정 위치까지 SFD의 면적에 초기값을 더한 것</font>과 같다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_2" hidden>하중의 차수가 \(1\)일 때 휨모멘트의 차수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 차</td>
+                            <td><input type="submit" id="submit_test_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_2" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="diagram" aria-hidden="true"></a>SFD 작성</h3>
+                <ul>
+                    <li>
+                        부재의 중심축을 따라 \(x\)축을 긋고 그에 수직으로 \(V(x)\)축을 설정한다.
+                    </li>
+                    <li>
+                        다음에는 각 구간별로 <font color="MediumVioletRed">해당 구간의 시작점과 끝점 등의 \(x\)를 \(V(x)\)에 대압</font>히여 전단력의 값을 계산하고 이를 바탕으로 식 \(V(x)\)의 그래프를 그린다.
+                    </li>
+                    <li>
+                        그래프는 해당 구간 내에 작용하는 하중이 없으면 상수(\(x\)축과 평행한 선), 등분포이면 1차식, 등변분포이면 2차식이다.
+                    </li>
+                    <li>
+                        <font color="MediumVioletRed">지점반력이나 집중하중이 작용하는 위치에서 SFD에 수직선</font>이 있다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_3" hidden>구조물의 서로 다른 위치에 지점반력이 2개, 집중하중이 3개 작용하는 경우, SFD에서 수직선의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_test_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_3" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="diagram" aria-hidden="true"></a>BMD 작성</h3>
+                <ul>
+                    <li>
+                        부재의 중심축을 따라 \(x\)축을 긋고 그에 수직으로 \(M(x)\)축을 설정한다.
+                    </li>
+                    <li>
+                        다음에는 각 구간별로 <font color="MediumVioletRed">해당 구간의 시작점과 끝점 등의 \(x\)를 \(M(x)\)에 대압</font>히여 휨모멘트의 값을 계산하고 이를 바탕으로 식 \(M(x)\)의 그래프를 그린다.
+                    </li>
+                    <li>
+                        그래프는 해당 구간 내의 SFD가 상수(\(x\)축과 평행한 선)이면 1차식, 1차식이면 2차식, 2차식이면 3차식이다.
+                    </li>
+                    <li>
+                        <font color="MediumVioletRed">모멘트 지점반력이나 모멘트 집중하중이 작용하는 위치에서 BMD에 수직선</font>이 있다.
+                    </li>
+                    <li>
+                        <font color="MediumVioletRed">특정 위치에서 BMD의 값은 기준점부터 특정 위치까지 SFD의 면적에 초기값을 더한 것</font>이다.
+                    </li>
+                    <li>
+                        <font color="MediumVioletRed">특정 위치에서 BMD의 기울기는 SFD의 값</font>이다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_4" hidden>어떤 구간에 등분포하중이 작용하는 경우, BMD의 차수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 차</td>
+                            <td><input type="submit" id="submit_test_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_4" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!--########## RE VIEW ##########-->
+            <div id="re_view_quiz" hidden>
+                <h3><a class="anchor" name="re_view_quiz" aria-hidden="true"></a>복습 퀴즈</h3>
+                <ol id="ol_quiz">
+                    <li>다음에서 부재력을 계산하는 구간의 수를 계산하시오.<br><img src="images\quiz.03.03.01.png" width="332" height="101">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_1" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 SFD의 수직선의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_2" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 BMD의 수직선의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_3" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1의 구간 \(AB\)에서 SFD의 차수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 차</td>
+                            <td><input type="submit" id="submit_quiz_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_4" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1의 구간 \(AB\)에서 BMD의 차수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_5" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 차</td>
+                            <td><input type="submit" id="submit_quiz_5" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_5" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 부재력을 계산하는 구간의 수를 계산하시오.<br><img src="images\quiz.03.03.06.png" width="344" height="101">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_6" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_6" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_6" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 6에서 SFD의 수직선의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_7" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_7" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_7" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 6에서 BMD의 수직선의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_8" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_8" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_8" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 6의 구간 \(AB\)에서 SFD의 차수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_9" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 차</td>
+                            <td><input type="submit" id="submit_quiz_9" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_9" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 6의 구간 \(AB\)에서 BMD의 차수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_10" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 차</td>
+                            <td><input type="submit" id="submit_quiz_10" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_10" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                </ol>
+            </div>
+
+            <form id="form_proceed">
+                <h3 id="to_next"><a class="anchor" name="proceed" aria-hidden="true"></a>다음 단계로</h3>
+                <div style="padding-left: 60px;">
+                    <input type="submit" id="submit_keyword" value="내용 보여주기" /><span id="span_keyword"></span>
+                </div>
+            </form>
+
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <!--<p><a onclick="history.go(-1);">Go back</a></p>-->
+            <!--<p><a href="" onclick="history.back();">Go back</a></p>-->
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

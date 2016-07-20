@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="javascripts/login.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <title>Score</title>
+</head>
+
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>-->
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">점수 확인(check score)</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+
+            <!--########## LOGIN ##########-->
+            <div id="div_login">
+            <form id="form_login">
+                <h3 id="h3_login"><a class="anchor" name="login" aria-hidden="true"></a>로그인</h3>
+                <div style="padding-left: 60px;">
+                    <input type="text" class="inp_id_icon" id="inp_id" placeholder="학번" /><br>
+                    <input type="password" class="inp_pw_icon" id="inp_pw" placeholder="키워드" /><br>
+                    <input type="submit" id="submit_login" value="로그인" /><span id="span_un_pw" style="padding-left:10px"></span>
+                </div>
+            </form>
+            </div>
+
+            <!--########## MAIN VIEW ##########-->
+            <div id="main_view" hidden>
+                <h3><a class="anchor" name="score" aria-hidden="true"></a>점수</h3>
+                <ul>
+                    <li>과목 : 구조역학 (structural mechanics)</li>
+                    <li id="li_st_id"></li=">
+                    <li id="li_exam_name"></li>
+                    <li id="li_score"></li>
+                    <li id="li_avg"></li>
+                </ul>
+            </div><br /><br />
+
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

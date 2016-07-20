@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../javascripts/proceed.js"></script>
+    <script type="text/javascript" src="../javascripts/quiz.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <title>Member forces</title>
+</head>
+
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">부재력(member force)</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+
+            <!--########## PRE VIEW ##########-->
+            <div id="pre_view">
+                <h3><a class="anchor" name="pre_veiw" aria-hidden="true"></a>예습과제</h3>
+                <ul>
+                    <li>교재 75쪽~77쪽의 "3.1.1 축력", "3.1.2 전단력", "3.1.3 휨모멘트" 부분을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                    <li>교재 81쪽~83쪽의 "3.1.5 단면력의 해석절차" 부분을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                    <li>교재 84쪽~85쪽의 "3.2.1 전단력 및 휨모멘트 합수" 부분을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                </ul>
+            </div>
+
+            <!--########## MAIN VIEW ##########-->
+            <div id="main_view" hidden>
+                <h3><a class="anchor" name="member_force" aria-hidden="true"></a>부재력</h3>
+                <ul>
+                    <li>
+                        절점은 구조물 내에서 부재와 부재가 만나는 점으로서, 보와 보가 만나는 점, 기둥과 기둥이 만나는 점, 보와 기둥이 만나는 점은 명확한 절점이다.
+                    </li>
+                    <li>
+                        하지만, 하나의 부재 내에서도 임의의 위치를 가상으로 절단할 경우, 절단된 2개의 부재가 이 위치에서 만나므로 이 절단한 위치도 절점이 된다.
+                        이를 부재 내의 모든 위치에 적용하면, <font color="MediumVioletRed">부재 내의 모든 위치도 절점</font>이 된다.
+                    </li>
+                    <li>
+                        모든 절점에서는 반력, 즉 절점반력이 발생하는데, 이 <font color="MediumVioletRed">절점반력을 부재력(member force)</font>이라 하며, 절점반력, 절점력, 내력(internal force), 내응력, <font color="MediumVioletRed">단면력(sectional force)</font>이라고도 한다.
+                    </li>
+                    <li>
+                        부재 내의 모든 위치가 절점이므로, <font color="MediumVioletRed">부재 내의 모든 위치에서 부재력이 발생</font>한다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_1" hidden>부재력이 발생하는 위치를 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_1" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_test_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_1" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="member_force_type_role" aria-hidden="true"></a>부재력의 종류와 역할</h3>
+                <ul>
+                    <li>
+                        부재력의 종류로는 <font color="MediumVioletRed">축력, 전단력, 휨모멘트</font>가 있다.
+                    </li>
+                    <li>
+                        축력(axial force)은 \(A\)로 표시하며, 부재의 축방향(x방향)으로 길이를 변화시키는 효과를 일으킨다. 아래 그림과 같이 부재의 축방향으로 부재의 길이를 늘어나게 하는 축력은 인장력(tension)으로서 \(+\), 부재의 길이를 줄어들게 하는 축력은 압축력(compression)으로서 \(-\)이다.
+                        <p><img src="images\03.02.01.png" width="289" height="70"></p>
+                    </li>
+                    <li>
+                        전단력(shear force)은 \(V\)로 표시하며, 부재의 축에 직각방향(y방향)으로 자르는 효과를 일으킨다. 아래 그림과 같이 부재의 시작점과 끝점 단면에서 시계방향으로 회전하는 전단력이 \(+\)이고, 반대이면 \(-\)이다.
+                        <p><img src="images\03.02.02.png" width="240" height="70"></p>
+                    </li>
+                    <li>
+                        휨모멘트(bending moment, flexural moment)는 \(M\)으로 표시하며, 부재를 휘어지게 하는 효과를 일으킨다. 아래 그림과 같이 부재 축의 직각방향(y방향) 아래로 부재를 볼록하게 휘는 방향의 휨모멘트가 \(+\), 그 반대가 \(-\)이다. 즉, 부재의 시작점 단면에서 시계방향, 끝점 단면에서 반시계방향이 \(+\)이고 그 반대면 \(-\)이다.
+                        <p><img src="images\03.02.03.png" width="269" height="70"></p>
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_2" hidden>부재를 휘어지게 하는 부재력의 종류를 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_2" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_test_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_2" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="interval_member_force" aria-hidden="true"></a>구간별 부재력 계산</h3>
+                <ul>
+                    <li>
+                        부재력은 하중에 의해서 결정되므로, 하중이 불연속이면 부재력도 불연속이 된다. 따라서 하중의 불연속에 의해 구분되는 <font color="MediumVioletRed">구간별로 부재력을 따로 구해야</font> 한다.
+                    </li>
+                    <li>
+                        외력과 지점반력을 포함하는 집중하중의 경우, 집중하중의 왼쪽과 오른쪽이 각각의 구간이 된다. 분포하중의 경우, 분포하중이 작용하는 부분과 나머지 부분이 각각의 구간이 된다.
+                    </li>
+                    <li>
+                        부재력은 구간 내의 부재의 모든 위치에서 발생하기 때문에, <font color="MediumVioletRed">구간 내의 부재의 임의의 위치를 \(x\)로, 그 위치에서의 부재력, 즉 축력, 전단력, 휨모멘트를 \(A(x), \, V(x), \, M(x)\)로 나타낸</font>다.
+                    </li>
+                    <li>
+                        그리고 <font color="MediumVioletRed">구간 내에서 부재의 임의의 위치 \(x\)의 기준점과 양의 방향을 각 구간별로 결정</font>해야 한다.
+                    </li>
+                    <li>
+                        아래 그림은 구간을 구분하고 각 구간별로 기준점과 양의 방향을 결정하는 몇 가지 사례이다. 여기에서 알 수 있듯이, 기준점이 반드시 구간의 시작점이거나 양의 방향이 오른쪽일 필요는 없다.
+                        <p><img src="images\03.02.04.png" width="441" height="294"></p>
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_3" hidden>다음에서 부재력을 계산해야 하는 구간의 수를 계산하시오.<br/>
+                        <img src="images\test.03.02.03.png" width="212" height="100">
+                        <table><tr>
+                            <td><input type="text" id="inp_test_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_test_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_3" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="procedure" aria-hidden="true"></a>부재력 계산 절차</h3>
+                <ol style="padding-left: 60px;">
+                    <li>
+                        하중의 불연속을 고려하여 <font color="MediumVioletRed">부재력을 계산할 구간</font>을 나누고, <font color="MediumVioletRed">각 구간별로 \(x\)의 기준점과 양의 방향</font>을 설정한다.
+                    </li>
+                    <li>
+                        해당 구간 내에서 임의의 위치 \(x\)를 결정하고, 가상으로 절단한다.
+                    </li>
+                    <li>
+                        <font color="MediumVioletRed">기준점부터 \(x\)까지를 대상 구조물로 설정하여 자유물체도를 작성</font>한다. 이 자유물체도에는 외력, 지점반력, \(x\) 에서의 <font color="MediumVioletRed">부재력 \(A(x), \, V(x), \, M(x)\)까지 포함</font>해야 한다. 부재력은 <font color="MediumVioletRed">부재력으로서의 양의 방향</font>으로 설정한다.
+                    </li>
+                    <li>
+                        <font color="MediumVioletRed">평형조건식을 적용</font>하여 \(A(x), \, V(x), \, M(x)\)를 계산한다.
+                    </li>
+                </ol>
+            </div>
+
+            <!--########## RE VIEW ##########-->
+            <div id="re_view_quiz" hidden>
+                <h3><a class="anchor" name="re_view_quiz" aria-hidden="true"></a>복습 퀴즈</h3>
+                <ol id="ol_quiz">
+                    <li>다음에서 지점반력으로서의 \(P_2\)의 부호를\(+, \, -\)로 쓰시오.<br><img src="images\quiz.03.02.01.png" width="158" height="157">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_1" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_1" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 부재력으로서의 \(P_2\)의 부호를\(+, \, -\)로 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_2" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_2" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 지점반력으로서의 \(M_1\)의 부호를\(+, \, -\)로 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_3" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_3" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 부재력으로서의 \(M_1\)의 부호를\(+, \, -\)로 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_4" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_4" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 지점반력으로서의 \(P_2\)의 부호를\(+, \, -\)로 쓰시오.<br><img src="images\quiz.03.02.05.png" width="132" height="158">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_5" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_5" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_5" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 부재력으로서의 \(P_2\)의 부호를\(+, \, -\)로 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_6" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_6" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_6" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 지점반력으로서의 \(M_1\)의 부호를\(+, \, -\)로 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_7" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_7" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_7" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 부재력으로서의 \(M_1\)의 부호를\(+, \, -\)로 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_8" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_8" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_8" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 지점반력으로서의 \(P_1\)의 부호를\(+, \, -\)로 쓰시오.<br><img src="images\quiz.03.02.09.png" width="104" height="187">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_9" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_9" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_9" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 9에서 부재력으로서의 \(M_2\)의 부호를\(+, \, -\)로 쓰시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_10" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_10" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_10" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                </ol>
+            </div>
+
+            <form id="form_proceed">
+                <h3 id="to_next"><a class="anchor" name="proceed" aria-hidden="true"></a>다음 단계로</h3>
+                <div style="padding-left: 60px;">
+                    <input type="submit" id="submit_keyword" value="내용 보여주기" /><span id="span_keyword"></span>
+                </div>
+            </form>
+
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <!--<p><a onclick="history.go(-1);">Go back</a></p>-->
+            <!--<p><a href="" onclick="history.back();">Go back</a></p>-->
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

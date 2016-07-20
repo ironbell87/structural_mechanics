@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../javascripts/proceed.js"></script>
+    <script type="text/javascript" src="../javascripts/quiz.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <title>Equalibrium</title>
+</head>
+
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">힘의 평형(equalibrium)</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+
+            <!--########## PRE VIEW ##########-->
+            <div id="pre_view">
+                <h3><a class="anchor" name="pre_view" aria-hidden="true"></a>예습과제</h3>
+                <ul>
+                    <li>교재 27쪽~28쪽의 "2.1.4 힘의 평형"에서 평면력의 평형조건식 부분을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                </ul>
+            </div>
+            <!--########## MAIN VIEW ##########-->
+            <div id="main_view" hidden>
+                <h3><a class="anchor" name="equilibrium" aria-hidden="true"></a>평형상태와 평형조건식</h3>
+                <ul>
+                    <li>
+                        평형상태는 여러 힘을 받는 구조물이 정지 또는 등속운동하는 상태로서, 건축구조물이 <font color="MediumVioletRed">어떤 방향으로도 이동하지 않고 회전도 하지 않는</font> 상태이다.
+                        이를 수학적으로 표현한 <font color="MediumVioletRed">평형조건식(equations of equilibrium)</font>은 다음과 같다.
+                        <!--<p><font color="MediumVioletRed">\(\sum F=0 \\
+                                       \sum F=0 \quad \sum M=0\ \\
+                                       \sum F_x=0 \quad \sum F_y=0 \quad \sum M_z=0 \\
+                                       \sum M_A=0 \quad \sum M_B=0 \quad \sum M_C=0 \\
+                                       \sum F_x=0 \quad \sum F_y=0 \quad \sum F_z=0 \quad \sum M_x=0 \quad \sum M_y=0 \quad \sum M_z=0\)</font></p>-->
+                    </li>
+                    <li>
+                        \(\sum F=0 \)<br />
+                        모든 힘과 모멘트를 합성한 합력의 크기가 0이다.
+                    </li>
+                    <li>
+                        \(\sum F=0, \, \sum M=0\ \)<br />
+                        모든 힘을 합성한 합력의 크기가 0이고, 모든 모멘트를 합성한 합력의 크기가 0이다.
+                    </li>
+                    <li>
+                        <font color="MediumVioletRed">\(\sum F_x=0, \, \sum F_y=0, \, \sum M_z=0 \)<br />
+                        2차원의 xy평면(z평면)에서 모든 x축 방향의 힘을 합성한 합력의 크기가 0이고, 모든 y축 방향의 힘을 합성한 합력의 크기가 0이고, 모든 xy평면(z평면)의 모멘트를 합성한 합력의 크기가 0이다.</font>
+                    </li>
+                    <li>
+                        \(\sum M_A=0, \, \sum M_B=0, \, \sum M_C=0 \)<br />
+                        한 평면에서 한 직선 위에 있지 않은 3개의 점 A, B, C를 회전의 중심으로 하는 모멘트가 모두 0이다.
+                    </li>
+                    <li>
+                        \(\sum F_x=0, \, \sum F_y=0, \, \sum F_z=0, \, \sum M_x=0, \, \sum M_y=0, \, \sum M_z=0 \)<br />
+                        입체에서 x방향, y방향, z방향의 힘을 각각 합성한 합력의 크기가 0이고, yz평면(x평면), zx평면(y평면), xy평면(z평면)의 모멘트를 합성한 합력의 크기가 0이다.
+                    </li>
+                    <li>
+                        2차원의 xy평면(z평면)에서 평형조건식을 적용할 때, 모든 힘은 x방향의 힘, y방향의 힘, xy평면(z평면)의 모멘트로 구분하며 그 부호체계는 아래 그림과 같다.
+                        <p><img src="images\01.03.01.png" width="174" height="162"></p>
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_1" hidden>힘 \(F_1, \, F_2\)가 \(y\)축 방향으로 각각 \(4kN, \, -2kN\)일때, 평형조건식 \( \sum F_y=0\)을 만족시키기 위한 \(y\)축 방향의 힘 \(F_3\)의 크기를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_test_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_test_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_1" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="equilibrium_disp_rot" aria-hidden="true"></a>평형조건식의 만족과 이동/회전</h3>
+                <ul>
+                    <li>
+                        <font color="MediumVioletRed">평형조건식을 만족</font>시킨다는 것, 즉 가해지는 모든 힘과 모멘트를 합성한 <font color="MediumVioletRed">합력의 크기가 0</font>이면 구조물이 아무 힘도 받지 않는 듯이 힘에 의해서 <font color="MediumVioletRed">이동하지 않고 모멘트에 의해서 회전도 하지 않는다</font> 는 것을 의미한다.
+                    </li>
+                    <li>
+                        역으로 기술하면, 구조물이 이동하지 않는다면 평형조건식을 만족시킨다는 것, 즉 이동하는 방향의 힘들을 합성한 합력의 크기가 0이고, 회전하지 않는다면 모멘트들을 합성한 합력의 크기가 0이라는 의미이다.
+                    </li>
+                    <li>
+                        구조물이 x방향으로만 이동한다면, x방향의 평형조건식은 만족시키지 못하고 다른 평형조건식들은 만족시킨다는 것을 의미한다.
+                    </li>
+                    <li>
+                        구조물이 제자리에서 이동하지 않고 회전만 한다면, x방향과 y방향의 평형조건식은 만족시키지만 모멘트 평형조건식은 만족시키지 못한다는 것을 의미한다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_2" hidden>다음에서 점 \(O\)에 대한 회전이 없을 경우, 모멘트 \(M\)을 계산하시오.<br><img src="images\test.01.03.02.png" width="183" height="121">
+                        <table><tr>
+                            <td><input type="text" id="inp_test_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_test_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_2" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!--########## RE VIEW ##########-->
+            <div id="re_view_quiz" hidden>
+                <h3><a class="anchor" name="re_view_quiz" aria-hidden="true"></a>복습 퀴즈</h3>
+                <ol id="ol_quiz">
+                    <li>3개의 힘 \(F_1=(3, \, 2), \, F_2=(-2, \, 3), \, F_3=(x_3, \, y_3)\)가 \( \sum F_x=0\)을 만족시킬 때, \(x_3\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_1" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1의 3개 힘이 \( \sum F_y=0\)을 만족시킬 때, \(y_3\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_2" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>3개의 힘 \(F_1=(3.8, \, 1), \, F_2=(-1.25, \, -1), \, F_3=(x_3, \, y_3)\)가 \( \sum F_x=0\)을 만족할 때, \(x_3\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"></td>
+                            <td><input type="submit" id="submit_quiz_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_3" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 \( \sum F_y=0\)일 때, \(F_2\)의 크기를 계산하시오.<br><img src="images\quiz.01.03.04.png" width="244" height="109">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_4" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 4에서 \( \sum M=0\)일 때, \(M\)을 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_5" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_5" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_5" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 원점\((0, \, 0)\)에서의 \( \sum M=0\)일 때, \(V_B\)를 계산하시오.<br><img src="images\quiz.01.03.06.png" width="267" height="95">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_6" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_6" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_6" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 6에서 \( \sum F_y=0\)일 때, \(V_A\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_7" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_7" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_7" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 평형조건식을 적용하여 \(H_A\)를 계산하시오.<br><img src="images\quiz.01.03.08.png" width="345" height="120">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_8" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_8" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_8" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 8에서 평형조건식을 적용하여 \(V_A\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_9" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN\)</td>
+                            <td><input type="submit" id="submit_quiz_9" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_9" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 8에서 평형조건식을 적용하여 \(M_A\)를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_10" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> \(kN \cdot m\)</td>
+                            <td><input type="submit" id="submit_quiz_10" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_10" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                </ol>
+            </div>
+
+            <form id="form_proceed">
+                <h3 id="to_next"><a class="anchor" name="proceed" aria-hidden="true"></a>다음 단계로</h3>
+                <div style="padding-left: 60px;">
+                    <input type="submit" id="submit_keyword" value="내용 보여주기" /><span id="span_keyword"></span>
+                </div>
+            </form>
+
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <!--<p><a onclick="history.go(-1);">Go back</a></p>-->
+            <!--<p><a href="" onclick="history.back();">Go back</a></p>-->
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>

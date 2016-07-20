@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Structural mechanics : ">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/javascript" src="../javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../javascripts/proceed.js"></script>
+    <script type="text/javascript" src="../javascripts/quiz.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+    <title>Support and support reaction</title>
+</head>
+
+    <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://pages.github.com">Published with GitHub</a>
+            <h1 id="project_title">지지/지점(support)과 지점반력(support reaction)</h1>
+            <h2 id="project_tagline"></h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+
+            <!--########## PRE VIEW ##########-->
+            <div id="pre_view">
+                <h3><a class="anchor" name="pre_veiw" aria-hidden="true"></a>예습과제</h3>
+                <ul>
+                    <li>교재 44쪽~46쪽의 "2.2.3 구조물의 지지방법과 반력"의 구조물의 지지방법을 읽고 요약하여 보고서로 작성하여 제출하시오.</li>
+                </ul>
+            </div>
+
+            <!--########## MAIN VIEW ##########-->
+            <div id="main_view" hidden>
+                <h3><a class="anchor" name="support" aria-hidden="true"></a>지지/지점(support)</h3>
+                <ul>
+                    <li>
+                        구조물이 이동 또는 회전하지 않도록 하는 것을 "구조물을 지지한다"라고 하며, 구조물을 지지하기 위해서 구조물이 <font color="MediumVioletRed">외부</font>와 <font color="MediumVioletRed">물리적</font>으로 연결되는 <font color="MediumVioletRed">부분 또는 점</font>을 지점이라 한다.
+                    </li>
+                    <li>
+                        따라서 지지된 구조물은 지점이 있고, <font color="MediumVioletRed">지점에 의해서 이동과 회전이 발생하지 않</font>는다. 그리고 이동과 회전이 없다는 것은 <font color="MediumVioletRed">평형조건식\( \left( \sum F_x=0, \, \sum F_y=0, \, \sum M_z=0 \right) \)을 모두 만족</font>시킨다는 것을 의미한다.
+                    </li>
+                    <li>
+                        만약 구조물이 적절히 지지되지 못하면 평형조건식의 일부 또는 전부를 만족시키지 못하게 된다.
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_1" hidden>다음에서 지점의 수를 계산하시오.<br><img src="images\test.02.01.01.png" width="283" height="70">
+                        <table><tr>
+                            <td><input type="text" id="inp_test_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_test_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_1" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="support_reaction_definition" aria-hidden="true"></a>반력(reaction)/지점반력(support reaction)</h3>
+                <ul>
+                    <li>
+                        구조물이 지지되었다는 것은 구조물에 작용하는 외부의(external) 하중(load), 즉 <font color="MediumVioletRed">외부의 힘(external force, 외력)이 지점을 통해서 구조물의 외부로 전달</font>되는 것을 의미한다.
+                    </li>
+                    <li>
+                        아래 그림 왼쪽과 같이 외력 \(P\)가 작용하면 <font color="MediumVioletRed">구조물을 물리적인 통로로 하여 지점까지 전달</font>되어 \(P'\)이 작용하고, 지점에서 작용-반작용 법칙에 의해서 반작용(reaction, 반력) \(P''\)이 발생한다. 이때 <font color="MediumVioletRed">\(P'\)은 지점에 작용하고 반력 \(P''\)은 구조물에 작용</font>한다.
+                        <p><img src="images\02.01.01.png" width="407" height="50"></p>
+                    </li>
+                    <li>
+                        위 그림 중앙은 <font color="MediumVioletRed">구조물과 그에 작용하는 힘만을 표시한 자유물체도(free body diagram)</font>이다. 왼쪽의 힘 \(P\)는 외력이고, 오른쪽의 힘 \(P''\)은 반력으로서 지점에서 발생한 반력이므로 <font color="MediumVioletRed">지점반력</font>이라고도 한다.
+                    </li>
+                    <li>
+                        왼쪽의 외력 \(P\)와 오른쪽의 지점반력 \(P''\)은 크기가 같고 방향이 반대이므로, 구조물에 작용한 x방향의 모든 힘을 합성한 합력의 크기가 0, 즉 x방향 <font color="MediumVioletRed">평형조건식을 만족</font>시킨다\(\left( \sum F_x = P - P'' = 0 \right)\). 따라서 구조물은 x방향으로 <font color="MediumVioletRed">이동하지 않</font>는다.
+                    </li>
+                    <li>
+                        이로부터, <font color="MediumVioletRed">지점반력이 발생하면 평형조건식을 만족시켜 구조물의 이동과 회전이 없</font>으며, 역으로 <font color="MediumVioletRed">구조물의 이동과 회전이 없다면 평형조건식이 만족되고 지점반력이 발생</font>한다는 것을 알 수 있다. 간단히 기술하면 다음과 같다.
+                        <font color="MediumVioletRed">
+                        <p>지점 ➜ 지점반력 ➜ 평형조건식 만족 ➜ 이동 및 회전 불가</p>
+                        <p>지점 ➜ 이동 및 회전 불가 ➜ 평형조건식 만족 ➜ 지점반력</p>
+                        </font>
+                    </li>
+                    <li>
+                        이와 같이 <font color="MediumVioletRed">외력과 지점반력은 발생한 원인은 다르지만, 모두 구조물에 작용</font>하는 힘으로서 구조물의 거동, 즉 <font color="MediumVioletRed">평형조건식과 이동 및 회전에 영향</font>을 미친다.
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="support_point" aria-hidden="true"></a>지점의 종류</h3>
+                <ul>
+                    <li>
+                        지점에는 이동단(roller), 회전단(hinge, pin), 고정단(fix, fixed end)이 있다.
+                    </li>
+                    <li>
+                        이동단은 아래 그림과 같이 표시하며, 이동방향의 이동과 회전이 가능하고 이동방향에 직각방향으로는 이동이 불가하다. 따라서 이동방향에 직각방향의 반력 1개가 존재한다.
+                        <p><img src="images\02.01.02.png" width="129" height="60"></p>
+                    </li>
+                    <li>
+                        회전단은 아래 그림과 같이 표시하며, 회전만 가능하고, x방향과 y방향의 이동이 불가하다. 따라서 x방향과 y방향의 반력 2개가 존재한다.
+                        <p><img src="images\02.01.03.png" width="135" height="66"></p>
+                    </li>
+                    <li>
+                        고정단은 아래 그림과 같이 표시하며, x방향과 y방향의 이동과 회전 모두 불가하다. 따라서 x방향과 y방향의 반력 2개와 모멘트 반력 1개가 존재한다.
+                        <p><img src="images\02.01.04.png" width="143" height="72"></p>
+                    </li>
+                    <li><a href="" class="li_test" aria-hidden="true">Simple test</a>
+                        <div id="test_2" hidden>다음에서 지점반력의 수를 계산하시오.<br><img src="images\test.02.01.01.png" width="283" height="70">
+                        <table><tr>
+                            <td><input type="text" id="inp_test_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_test_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_test_2" class="span_test"></span></td>
+                        </tr></table>
+                        </div>
+                    </li>
+                </ul>
+                <h3><a class="anchor" name="support_reaction" aria-hidden="true"></a>지점반력의 종류와 역할</h3>
+                <ul>
+                    <li>
+                        지점반력은 오로지 <font color="MediumVioletRed">지점에만 작용</font>하며, 종류로는 xy평면(z평면)의 경우, 지점반력에는 x방향의 힘, y방향의 힘, z방향의 모멘트가 있다.
+                    </li>
+                    <li>
+                        x방향의 힘은 x축 방향으로 작용하며 구조물이 x방향으로 이동하는 것을 방지한다.
+                    </li>
+                    <li>
+                        y방향의 힘은 y축 방향으로 작용하며 구조물이 y방향으로 이동하는 것을 방지한다.
+                    </li>
+                    <li>
+                        z방향의 모멘트는 z축을 중심으로 xy평면을 회전시키는 방향으로 작용하며 구조물이 z축을 중심으로 회전하는 것을 방지한다.
+                    </li>
+                </ul>
+            </div>
+
+            <!--########## RE VIEW ##########-->
+            <div id="re_view_quiz" hidden>
+                <h3><a class="anchor" name="re_view_quiz" aria-hidden="true"></a>복습 퀴즈</h3>
+                <ol id="ol_quiz">
+                    <li>다음에서 지점의 수를 계산하시오.<br><img src="images\quiz.02.01.01.png" width="231" height="117">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_1" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_1" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_1" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 1에서 지점반력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_2" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_2" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_2" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 \(x\)방향 지점반력의 수를 계산하시오.<br><img src="images\quiz.02.01.03.png" width="283" height="101">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_3" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_3" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_3" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 3에서 \(y\)방향 지점반력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_4" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_4" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_4" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 왼쪽 지점의 지점반력의 수를 계산하시오.<br><img src="images\quiz.02.01.05.png" width="258" height="179">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_5" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_5" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_5" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 5에서 오른쪽 지점의 지점반력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_6" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_6" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_6" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 지점의 수를 계산하시오.<br><img src="images\quiz.02.01.07.png" width="261" height="147">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_7" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_7" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_7" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 지점반력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_8" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_8" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_8" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>다음에서 왼쪽 지점의 지점반력의 수를 계산하시오.<br><img src="images\quiz.02.01.09.png" width="306" height="53">
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_9" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_9" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_9" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                    <li>퀴즈 9에서 오른쪽 지점의 지점반력의 수를 계산하시오.
+                        <table><tr>
+                            <td><input type="text" id="inp_quiz_10" onkeypress="return IsNumeric(event,this.value);" ondrop="return false;" onpaste="return false;"> 개</td>
+                            <td><input type="submit" id="submit_quiz_10" class="submit_test_quiz" value="Submit"></td>
+                            <td><span id="span_quiz_10" class="span_quiz"></span></td>
+                        </tr></table>
+                    </li>
+                </ol>
+            </div>
+
+        <form id="form_proceed">
+            <h3 id="to_next"><a class="anchor" name="proceed" aria-hidden="true"></a>다음 단계로</h3>
+            <div style="padding-left: 60px;">
+                <input type="submit" id="submit_keyword" value="내용 보여주기" /><span id="span_keyword"></span>
+            </div>
+        </form>
+
+    </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <!--<p><a onclick="history.go(-1);">Go back</a></p>-->
+            <!--<p><a href="" onclick="history.back();">Go back</a></p>-->
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>
