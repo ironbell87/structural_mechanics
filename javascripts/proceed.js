@@ -41,8 +41,7 @@ $(document).ready(function ()
                     respond = respond + "기준(60.0/100.0) 이상입니다.<br />축하합니다! 이번주 학습을 완료했습니다."
                     if (score == 100)
                     {
-                        $("#submit_keyword").val("메인으로 돌아가기");
-                        //location.href = "../main.html";
+                        $("#submit_keyword").val("메인으로 가기");
                     }
                 }
                 else
