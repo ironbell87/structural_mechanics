@@ -5,7 +5,8 @@ var pw_arr = ["e4b1cec63d16", "c53d2fd81a66", "06d6afcf88e8", "f2a6f9460ab3", "a
 var sc_arr = ["90", "30"];
 var exam_name = "중간고사";
 var average = "24.5";
-var start_date = "2016-10-04T09:00:00";
+var login_date = "2016-09-13T11:00:00";
+var score_date = "2016-10-04T09:00:00";
 
 $(document).ready(function ()
 {
@@ -21,15 +22,15 @@ $(document).ready(function ()
     //xhttp.open("GET", "flag_time.tim", true);
     //xhttp.send();
 
-    inform_login(start_date);
+    inform_login();
 });
 
-function inform_login(p_time_string)
+function inform_login()
 {
-    var tgt_date = Date.parse(p_time_string.replace(/\r?\n|\r/g, "")); // remove new line character; 2016.09.07 am 9:00
+    var tgt_date = Date.parse(login_date.replace(/\r?\n|\r/g, "")); // remove new line character; 2016.09.07 am 9:00
     var cur_date = new Date($.now());
 
-    // before the flag date, update to inform mode
+    // before the login date, update to inform mode
     if (cur_date < tgt_date)
     {
         $("#h3_login").text("로그인 정보");
@@ -92,7 +93,20 @@ function login() {
             }
             else
             {
-                show_score(id, i);
+                var tgt_date = Date.parse(score_date.replace(/\r?\n|\r/g, "")); // remove new line character; 2016.09.07 am 9:00
+                var cur_date = new Date($.now());
+
+                // before the score date, update to inform mode
+                if (cur_date < tgt_date)
+                {
+                    $("#span_un_pw").text("확인할 점수가 없습니다!");
+                    $("#inp_id").val("");
+                    $("#inp_pw").val("");
+                }
+                else
+                {
+                    show_score(id, i);
+                }
             }
             return false; // if true is returned to the form, the page will be refreshed or reloaded
                           // if nothing is returned to the form, in fact, true is returned
