@@ -59,48 +59,50 @@ $(document).ready(function ()
         //j_idx = j_idx.replace("th", "");
 
         // get the row of the array => [9800, 12, 0]; // get the index of row
-        var title = $(document).find("title").text();
-        switch (title)
-        {
-            case "Force, moment, and couple":
-                var cur_idx = 0; break;
-            case "Composition and decomposition":
-                var cur_idx = 1; break;
-            case "Equalibrium":
-                var cur_idx = 2; break;
-            case "Loads":
-                var cur_idx = 3; break;
-            case "Support and support reaction":
-                var cur_idx = 4; break;
-            case "Computation of support reaction":
-                var cur_idx = 5; break;
-            case "Computation of support reaction of Gerber beam":
-                var cur_idx = 6; break;
-            case "Joint and joint reaction":
-                var cur_idx = 7; break;
-            case "Member forces":
-                var cur_idx = 8; break;
-            case "Member force diagram":
-                var cur_idx = 9; break;
-            case "Member forces of a beam":
-                var cur_idx = 10; break;
-            case "Member forces of a frame":
-                var cur_idx = 11; break;
-            case "Member forces of a truss":
-                var cur_idx = 12; break;
-            case "Member forces of a cabel and arch":
-                var cur_idx = 13; break;
-            default:
-                var cur_idx = 0; break;
-        }
-        if (ans_type == "test") { cur_arr = test_ans_arr[cur_idx]; }
-        else { cur_arr = quiz_ans_arr[cur_idx]; }
+        if (ans_type == "test") { cur_arr = test_ans_arr[get_row_idx()]; }
+        else { cur_arr = quiz_ans_arr[get_row_idx()]; }
 
         // comparison
         treat_answer(cur_arr, j_idx, ans_type);
     });
 });
 
+function get_row_idx() {
+    var title = $(document).find("title").text();
+    switch (title) {
+        case "Force, moment, and couple":
+            var cur_idx = 0; break;
+        case "Composition and decomposition":
+            var cur_idx = 1; break;
+        case "Equalibrium":
+            var cur_idx = 2; break;
+        case "Loads":
+            var cur_idx = 3; break;
+        case "Support and support reaction":
+            var cur_idx = 4; break;
+        case "Computation of support reaction":
+            var cur_idx = 5; break;
+        case "Computation of support reaction of Gerber beam":
+            var cur_idx = 6; break;
+        case "Joint and joint reaction":
+            var cur_idx = 7; break;
+        case "Member forces":
+            var cur_idx = 8; break;
+        case "Member force diagram":
+            var cur_idx = 9; break;
+        case "Member forces of a beam":
+            var cur_idx = 10; break;
+        case "Member forces of a frame":
+            var cur_idx = 11; break;
+        case "Member forces of a truss":
+            var cur_idx = 12; break;
+        case "Member forces of a cabel and arch":
+            var cur_idx = 13; break;
+        default:
+            var cur_idx = 0; break;
+    }
+    return cur_idx;
+}
 function treat_answer(cur_arr, j_idx, p_type) // p_type = "test" / "quiz"
 {
     // get id of the corresponding elements
@@ -124,7 +126,8 @@ function treat_answer(cur_arr, j_idx, p_type) // p_type = "test" / "quiz"
     //  in case of exact answer
     if (comparison_value(inp_quiz, m_ans, m_inp)) {
         $(inp_quiz).val(m_ans);
-        $(inp_quiz).prop("disabled", true);
+        $(inp_quiz).prop("disabled", true); // disable input button
+        $("#submit_" + p_type + j_idx).prop("disabled", true); // disable submit button
         $(span_quiz).text("Good job!");
         if (p_type == "test_")
         {
