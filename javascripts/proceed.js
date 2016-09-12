@@ -1,5 +1,9 @@
-﻿var cur_week_date = "2015-08-14T09:00:00";
-var kw_arr = ["summer", "just", "poke", "couple", "autumn", "capital", "winehouse", "floyd", "tomwaits", "vangelis", "yes", "eagles", "jimi"];  // the corresponding passwords;
+﻿var target_date = ["2016-09-13T11:00:00", "2016-09-20T11:00:00", "2016-09-27T11:00:00", "2016-10-04T11:00:00", "2016-10-11T11:00:00",
+                   "2016-10-18T11:00:00", "2016-10-25T11:00:00", "2016-11-01T11:00:00", "2016-11-08T11:00:00", "2016-11-15T11:00:00",
+                   "2016-11-22T11:00:00", "2016-11-29T11:00:00", "2016-12-06T11:00:00", "2016-12-20T11:00:00"];
+//var target_date = ["2015-09-13T11:00:00", "2015-09-20T11:00:00", "2015-09-27T11:00:00", "2015-10-04T11:00:00", "2015-10-11T11:00:00",
+//                   "2015-10-18T11:00:00", "2015-10-25T11:00:00", "2015-11-01T11:00:00", "2015-11-08T11:00:00", "2015-11-15T11:00:00",
+//                   "2015-11-22T11:00:00", "2015-11-29T11:00:00", "2015-12-06T11:00:00", "2015-12-20T11:00:00"];
 
 $(document).ready(function ()
 {
@@ -143,12 +147,26 @@ $(document).ready(function ()
 
 function show_main_body()
 {
+    // for admin, always show everything
+    // get login id from sesseionStorage
+    if (typeof (Storage) != "undefined") {
+        if (sessionStorage.login_id == "admin") {
+            $('#main_view').show();
+            $('#re_view').hide();
+            $('#span_keyword').text(""); // set for next stage
+
+            //$("#to_next").text("학습 결과");
+            $("#submit_keyword").val("복습 퀴즈 풀이");
+        }
+        return;
+    }
+
     // set date
-    var flg_date = Date.parse(cur_week_date);
+    var tgt_date = Date.parse(target_date[get_row_idx()]);
     var cur_date = new Date($.now());
 
-    // after the flag date, show main_view
-    if (cur_date >= flg_date)
+    // after the target date, show main_view
+    if (cur_date >= tgt_date)
     {
         $('#main_view').show();
         $('#re_view').hide();
