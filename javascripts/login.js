@@ -5,12 +5,8 @@ var pw_arr = ["e4b1cec63d16", "c53d2fd81a66", "06d6afcf88e8", "f2a6f9460ab3", "a
 var sc_arr = ["90", "30"];
 var exam_name = "중간고사";
 var average = "24.5";
-<<<<<<< HEAD
-var start_date = "2016-10-04T09:00:00";
-=======
 var login_date = "2016-09-13T11:00:00";
 var score_date = "2016-10-04T09:00:00";
->>>>>>> gh-pages
 
 $(document).ready(function ()
 {
@@ -31,17 +27,10 @@ $(document).ready(function ()
 
 function inform_login()
 {
-<<<<<<< HEAD
-    var tgt_date = Date.parse(p_time_string.replace(/\r?\n|\r/g, "")); // remove new line character; 2016.09.07 am 9:00
-    var cur_date = new Date($.now());
-
-    // before the flag date, update to inform mode
-=======
     var tgt_date = Date.parse(login_date.replace(/\r?\n|\r/g, "")); // remove new line character; 2016.09.07 am 9:00
     var cur_date = new Date($.now());
 
     // before the login date, update to inform mode
->>>>>>> gh-pages
     if (cur_date < tgt_date)
     {
         $("#h3_login").text("로그인 정보");
