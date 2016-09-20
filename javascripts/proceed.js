@@ -157,8 +157,8 @@ function show_main_body()
 
             //$("#to_next").text("학습 결과");
             $("#submit_keyword").val("복습 퀴즈 풀이");
+            return;
         }
-        return;
     }
 
     // set date
